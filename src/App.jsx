@@ -1,11 +1,17 @@
 import './App.css'
 import styled from 'styled-components'
+import GoogleLoginPage from './pages/GoogleLoginPage';
+import { Route, Routes } from 'react-router-dom';
+import MainPage from './pages/MainPage';
 
 function App() {
   return (
     <Outside>
       <AppDom>
-        Testing
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/googleloginpage" element={<GoogleLoginPage />} />
+        </Routes>
       </AppDom>
     </Outside>
   )
