@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import GoogleLoginButton from '../components/GoogleLoginButton';
 
 //카카오로그인 버튼을 통해 바로 로그인 할 수 있도록.
 const K_REST_API_KEY = import.meta.env.VITE_APP_K_REST_API_KEY;
@@ -20,7 +21,7 @@ const MainPage = () => {
     return (
         <Buttons>
             <Button onClick={kakaoLoginHandler}>카카오 로그인</Button>
-            <Button onClick={googleLoginHandler}>구글 로그인</Button>
+            <GoogleLoginButton onClick={googleLoginHandler}>구글 로그인</GoogleLoginButton>
         </Buttons>
     );
 };
