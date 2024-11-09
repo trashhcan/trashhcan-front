@@ -6,19 +6,19 @@ import { useNavigate } from "react-router-dom";
 // @react-oauth/google 라이브러리로 프론트에서 직접 JWT 토큰을 받아옵니다.
 const GoogleLoginButton = () => {
     const navigate = useNavigate();
-    const clientId = import.meta.env.VITE_APP_GOOGLE_CLIENT_ID;
+    const CLIENT_ID = import.meta.env.VITE_APP_G_CLIENT_ID;
 
     const googleLoginHandler = (res) => {
         const token = res.credential;
         const decode = jwtDecode(token);
 
         localStorage.setItem('user', JSON.stringify(decode));
-        navigate('/googleloginpage');
+        navigate('/home');
     }
 
     return (
         <>
-            <GoogleOAuthProvider clientId={clientId}>
+            <GoogleOAuthProvider clientId={CLIENT_ID}>
                 <GoogleLogin
                     onSuccess={(res) => googleLoginHandler(res)}
                     onFailure={(err) => {
