@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 export function KakaoRedirect() {
   const navigate = useNavigate();
-  
+
   // URL에서 인가코드 뽑기
   const code = new URL(window.location.href).searchParams.get("code");
   console.log("Kakao 인가 코드:", code);
