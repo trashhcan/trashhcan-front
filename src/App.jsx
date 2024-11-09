@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import GoogleLoginPage from './pages/GoogleLoginPage';
 import { Route, Routes } from 'react-router-dom';
 import MainPage from './pages/MainPage';
+import KakaoLoginPage from './pages/KakaoLoginPage';
+import MakeTrashcan from './pages/MakeTrashcan';
+
 
 function App() {
   return (
@@ -11,6 +14,8 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/googleloginpage" element={<GoogleLoginPage />} />
+          <Route path="/kakaologinpage" element={<KakaoLoginPage />} />
+          <Route path="/maketrashcan" element={<MakeTrashcan />} />
         </Routes>
       </AppDom>
     </Outside>
