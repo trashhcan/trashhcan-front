@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 import KakaoLoginPage from './pages/KakaoLoginPage';
 import MakeTrashcan from './pages/MakeTrashcan';
+import KakaoRedirect from './pages/KakaoRedirect';
 
 
 function App() {
@@ -16,6 +17,8 @@ function App() {
           <Route path="/googleloginpage" element={<GoogleLoginPage />} />
           <Route path="/kakaologinpage" element={<KakaoLoginPage />} />
           <Route path="/maketrashcan" element={<MakeTrashcan />} />
+          <Route path="/path" element={<KakaoRedirect />} />
+
         </Routes>
       </AppDom>
     </Outside>
