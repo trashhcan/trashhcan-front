@@ -7,21 +7,25 @@ import KakaoLoginPage from './pages/KakaoLoginPage';
 import MakeTrashcan from './pages/MakeTrashcan';
 import GoogleOAuthPage from './pages/GoogleOAuthPage';
 import Home from './pages/Home';
+import { ThemeProvider } from 'styled-components';
+import { theme } from './styles/theme';
 
 
 function App() {
   return (
     <Outside>
-      <AppDom>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/googleloginpage" element={<GoogleLoginPage />} />
-          <Route path="/oauth" element={<GoogleOAuthPage />} />
-          <Route path="/kakaologinpage" element={<KakaoLoginPage />} />
-          <Route path="/maketrashcan" element={<MakeTrashcan />} />
-          <Route path="/home" element={<Home />} />
-        </Routes>
-      </AppDom>
+      <ThemeProvider theme={theme}>
+        <AppDom>
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/googleloginpage" element={<GoogleLoginPage />} />
+            <Route path="/oauth" element={<GoogleOAuthPage />} />
+            <Route path="/kakaologinpage" element={<KakaoLoginPage />} />
+            <Route path="/maketrashcan" element={<MakeTrashcan />} />
+            <Route path="/home" element={<Home />} />
+          </Routes>
+        </AppDom>
+      </ThemeProvider>
     </Outside>
   )
 }
@@ -36,7 +40,6 @@ const AppDom = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  background-color: #eaeaea;
 
   @media (max-width: 600px) {
     width: 100vw;

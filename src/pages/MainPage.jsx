@@ -31,21 +31,50 @@ const MainPage = () => {
         window.location.href = googleURL;
     }
     return (
-        <Buttons>
-            <Button onClick={kakaoLoginHandler}>카카오 로그인</Button>
-            <GoogleLoginButton onClick={googleLoginHandler}>구글 로그인</GoogleLoginButton>
-            <Button onClick={googleLoginHandlerServer}>구글 로그인(서버)</Button>
-        </Buttons>
+        <Container>
+            <Logo />
+            <Title>내쓰통</Title>
+            <Buttons>
+                <Button onClick={kakaoLoginHandler}>카카오 로그인</Button>
+                <GoogleLoginButton onClick={googleLoginHandler}>구글 로그인</GoogleLoginButton>
+                <Button onClick={googleLoginHandlerServer}>구글 로그인(서버)</Button>
+            </Buttons>
+        </Container>
     );
 };
 
 export default MainPage;
 
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-image: url('src/assets/images/login-background.png');
+`
+
+const Logo = styled.img.attrs({
+    src: 'src/assets/images/logo.png',
+    alt: 'Logo'
+})`
+    width: ${({ theme }) => theme.InnerSection}; 
+`;
+
+const Title = styled.div`
+`
+
 const Buttons = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `
 
 const Button = styled.button`
     padding: 0.5rem;
+    width: ${({ theme }) => theme.MiddleSection};
 `
