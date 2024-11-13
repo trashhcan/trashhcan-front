@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 import KakaoLoginPage from './pages/KakaoLoginPage';
 import MakeTrashcan from './pages/MakeTrashcan';
+import KakaoRedirect from './pages/KakaoRedirect';
 import GoogleOAuthPage from './pages/GoogleOAuthPage';
 import Home from './pages/Home';
 import { ThemeProvider } from 'styled-components';
@@ -14,18 +15,17 @@ import { theme } from './styles/theme';
 function App() {
   return (
     <Outside>
-      <ThemeProvider theme={theme}>
-        <AppDom>
-          <Routes>
-            <Route path="/" element={<MainPage />} />
-            <Route path="/googleloginpage" element={<GoogleLoginPage />} />
-            <Route path="/oauth" element={<GoogleOAuthPage />} />
-            <Route path="/kakaologinpage" element={<KakaoLoginPage />} />
-            <Route path="/maketrashcan" element={<MakeTrashcan />} />
-            <Route path="/home" element={<Home />} />
-          </Routes>
-        </AppDom>
-      </ThemeProvider>
+      <AppDom>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/googleloginpage" element={<GoogleLoginPage />} />
+          <Route path="/oauth" element={<GoogleOAuthPage />} />
+          <Route path="/kakaologinpage" element={<KakaoLoginPage />} />
+          <Route path="/maketrashcan" element={<MakeTrashcan />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/path" element={<KakaoRedirect />} />
+        </Routes>
+      </AppDom>
     </Outside>
   )
 }

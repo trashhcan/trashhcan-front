@@ -17,7 +17,7 @@ export function KakaoRedirect() {
 
   useEffect(() => {
     // 백엔드 서버로 인가코드 전달
-    fetch(`보내줄 주소?code=${code}`, { // 실제백엔드주소필요
+    fetch(`http://trashhcandoit.p-e.kr:8080/login/kakao/callback/login?code=${code}`, { // 실제백엔드주소필요
       method: "POST",
       headers: headers,
     })
