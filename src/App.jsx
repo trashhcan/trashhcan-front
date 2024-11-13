@@ -8,6 +8,8 @@ import MakeTrashcan from './pages/MakeTrashcan';
 import KakaoRedirect from './pages/KakaoRedirect';
 import GoogleOAuthPage from './pages/GoogleOAuthPage';
 import Home from './pages/Home';
+import { ThemeProvider } from 'styled-components';
+import { theme } from './styles/theme';
 
 
 function App() {
@@ -22,7 +24,6 @@ function App() {
           <Route path="/maketrashcan" element={<MakeTrashcan />} />
           <Route path="/home" element={<Home />} />
           <Route path="/path" element={<KakaoRedirect />} />
-
         </Routes>
       </AppDom>
     </Outside>
@@ -39,7 +40,6 @@ const AppDom = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  background-color: #eaeaea;
 
   @media (max-width: 600px) {
     width: 100vw;
