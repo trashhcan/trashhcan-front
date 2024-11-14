@@ -7,6 +7,8 @@ import KakaoLoginPage from './pages/KakaoLoginPage';
 import MakeTrashcan from './pages/MakeTrashcan';
 import KakaoRedirect from './pages/KakaoRedirect';
 import GoogleOAuthPage from './pages/GoogleOAuthPage';
+import Home from './pages/Home';
+import NickNamePage from './pages/NickNamePage';
 import Home from './pages/Home'
 import ChoiceLetter from './pages/ChoiceLetter';
 import WriteLetter from './pages/WriteLetter';
@@ -21,6 +23,7 @@ function App() {
           <Route path="/oauth" element={<GoogleOAuthPage />} />
           <Route path="/kakaologinpage" element={<KakaoLoginPage />} />
           <Route path="/maketrashcan" element={<MakeTrashcan />} />
+          <Route path="/nickname" element={<NickNamePage />} />
           <Route path="/home" element={<Home />} />
           <Route path="/path" element={<KakaoRedirect />} />
           <Route path="/ChoiceLetter" element={<ChoiceLetter />} />
