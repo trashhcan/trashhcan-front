@@ -8,6 +8,7 @@ import MakeTrashcan from './pages/MakeTrashcan';
 import KakaoRedirect from './pages/KakaoRedirect';
 import GoogleOAuthPage from './pages/GoogleOAuthPage';
 import Home from './pages/Home';
+import NickNamePage from './pages/NickNamePage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/oauth" element={<GoogleOAuthPage />} />
           <Route path="/kakaologinpage" element={<KakaoLoginPage />} />
           <Route path="/maketrashcan" element={<MakeTrashcan />} />
+          <Route path="/nickname" element={<NickNamePage />} />
           <Route path="/home" element={<Home />} />
           <Route path="/path" element={<KakaoRedirect />} />
         </Routes>
