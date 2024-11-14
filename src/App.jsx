@@ -10,6 +10,8 @@ import GoogleOAuthPage from './pages/GoogleOAuthPage';
 import Home from './pages/Home';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme';
+import ChoiceLetter from './pages/ChoiceLetter';
+import WriteLetter from './pages/WriteLetter';
 
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
           <Route path="/maketrashcan" element={<MakeTrashcan />} />
           <Route path="/home" element={<Home />} />
           <Route path="/path" element={<KakaoRedirect />} />
+          <Route path="/ChoiceLetter" element={<ChoiceLetter />} />
+          <Route path="/WriteLetter" element={<WriteLetter/>} />
         </Routes>
       </AppDom>
     </Outside>
