@@ -8,9 +8,6 @@ import MakeTrashcan from './pages/MakeTrashcan';
 import KakaoRedirect from './pages/KakaoRedirect';
 import GoogleOAuthPage from './pages/GoogleOAuthPage';
 import Home from './pages/Home';
-import { ThemeProvider } from 'styled-components';
-import { theme } from './styles/theme';
-
 
 function App() {
   return (
