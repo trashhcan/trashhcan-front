@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import GoogleLoginButton from '../components/GoogleLoginButton';
 import Spacer from '../components/Spacer';
 import { SIZES } from '../styles/spacing';
+import BackgroundContainer from '../components/BackgroundContainer';
+import BackgroundImg from '../assets/images/login-background.png';
 
 //카카오로그인 버튼을 통해 바로 로그인 할 수 있도록.
 const K_REST_API_KEY = import.meta.env.VITE_APP_K_REST_API_KEY;
@@ -33,7 +35,7 @@ const MainPage = () => {
         window.location.href = googleURL;
     }
     return (
-        <Container>
+        <BackgroundContainer backgroundImage={BackgroundImg}>
             <LogoContainer>
                 <Spacer size={SIZES.XLARGE} />
                 <Logo />
@@ -50,23 +52,11 @@ const MainPage = () => {
                 <Spacer size={SIZES.MINIMUN} />
                 <Text>쓸데 없는 편지 쓰러 가 보아요</Text>
             </Buttons>
-        </Container>
+        </BackgroundContainer>
     );
 };
 
 export default MainPage;
-
-const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
-    background-position: center;
-    background-size: cover;
-    background-image: url('src/assets/images/login-background.png');
-`
 
 const LogoContainer = styled.div`
     display: flex;
