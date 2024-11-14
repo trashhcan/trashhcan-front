@@ -7,12 +7,9 @@ import KakaoLoginPage from './pages/KakaoLoginPage';
 import MakeTrashcan from './pages/MakeTrashcan';
 import KakaoRedirect from './pages/KakaoRedirect';
 import GoogleOAuthPage from './pages/GoogleOAuthPage';
-import Home from './pages/Home';
-import { ThemeProvider } from 'styled-components';
-import { theme } from './styles/theme';
+import Home from './pages/Home'
 import ChoiceLetter from './pages/ChoiceLetter';
 import WriteLetter from './pages/WriteLetter';
-
 
 function App() {
   return (
