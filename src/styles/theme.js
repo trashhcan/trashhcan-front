@@ -3,7 +3,7 @@ import { css } from 'styled-components';
 export const theme = {
   InnerSection: '24vw',
   MiddleSection: '60vw',
-  OuterSection: '96vw',
+  OuterSection: '92vw',
 
   fixedInner: css`
     @media (min-width: 600px) {

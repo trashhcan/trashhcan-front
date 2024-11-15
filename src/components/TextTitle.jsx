@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { theme } from '../styles/theme';
 
 const TextTitle = ({ children }) => {
     return (
@@ -18,5 +17,7 @@ const StyledTitle = styled.div`
     text-align: center;
     color: ${({ theme }) => theme.backgroundColors.dark};
     background:  ${({ theme }) => theme.backgroundColors.light}; 
-    box-shadow: 0 0 1rem 0.5rem ${({ theme }) => theme.backgroundColors.light}; 
+    box-shadow : 0 0 1rem 0.5rem ${({ theme }) => theme.backgroundColors.light}; 
+    width: ${({ theme }) => theme.MiddleSection};
+    ${({ theme }) => theme.MiddleSection};
 `;
