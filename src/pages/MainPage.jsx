@@ -7,6 +7,7 @@ import { SIZES } from '../styles/spacing';
 import trashcanImage from '../assets/images/trashcan.png';
 import { BsGrid3X3 } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
+import IconBox from '../components/IconBox';
 
 
 const MainPage = () => {
@@ -29,7 +30,7 @@ const MainPage = () => {
 
     return (
         <Container>
-            <IconBox>
+            <IconBox justifyContent={"flex-end"}>
                 <BsGrid3X3 onClick={handleClickIcon} />
             </IconBox>
             <Spacer size={SIZES.SMALL} />
@@ -71,14 +72,6 @@ const MainPage = () => {
 };
 
 export default MainPage;
-
-const IconBox = styled.div`
-    display: flex;
-    justify-content: flex-end;
-    font-size: 2rem;
-    width: ${({ theme }) => theme.OuterSection};
-    ${({ theme }) => theme.fixedOuter};
-`
 
 const OuterShadow = styled.div`
     border-radius: 2rem;
