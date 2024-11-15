@@ -7,11 +7,11 @@ import styled from 'styled-components';
 
 const ChoiceLetter = () => {
   return (
-    <LetterLayout titleComponent={<ChoiceTitleBox/>}>
-        <ChoiceLayout>
+    <LetterLayout titleComponent={<ChoiceTitleBox />}>
+      <ChoiceLayout>
         <RandomBtn src={randombtn} alt="랜덤 편지지" />
         <OkBtn alt='확인'>확인</OkBtn>
-        </ChoiceLayout>
+      </ChoiceLayout>
     </LetterLayout>
   )
 }
@@ -45,5 +45,4 @@ const OkBtn = styled.button`
     color : #FFFFFF;
     font-family: 'Pretendard-Bold', sans-serif;
     font-size: 18px;
-
 `

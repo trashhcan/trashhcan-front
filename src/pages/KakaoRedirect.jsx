@@ -11,13 +11,13 @@ export function KakaoRedirect() {
 
   // 백엔드로 인가코드 전달, 액세스토큰 요청
   const headers = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "Content-Type": "application/json",
   };
 
 
   useEffect(() => {
     // 백엔드 서버로 인가코드 전달
-    fetch(`http://trashhcandoit.p-e.kr:8080/login/kakao/callback/login?code=${code}`, { // 실제백엔드주소필요
+    fetch(`http://111.118.56.72:8080/login/kakao/callback/?code=${code}`, { // 실제백엔드주소필요
       method: "POST",
       headers: headers,
     })
