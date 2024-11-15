@@ -13,7 +13,7 @@ export const theme = {
 
   fixedMiddle: css`
     @media (min-width: 600px) {
-      width: 240px;
+      width: 360px;
     }
   `,
 

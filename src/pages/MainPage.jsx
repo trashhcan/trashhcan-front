@@ -5,9 +5,17 @@ import Container from '../components/Container';
 import Spacer from '../components/Spacer';
 import { SIZES } from '../styles/spacing';
 import trashcanImage from '../assets/images/trashcan.png';
+import { BsGrid3X3 } from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
+
 
 const MainPage = () => {
+    const navigate = useNavigate();
     const [isShareModalOpen, setShareModalOpen] = useState(false);
+
+    const handleClickIcon = () => {
+        navigate("/menu")
+    }
 
     const handleFooterClick = () => {
         // 현재 URL 가져오기
@@ -21,43 +29,62 @@ const MainPage = () => {
 
     return (
         <Container>
-            <OuterLine>
-                <TrashBox>
-                    <Spacer size={SIZES.MEDIUM} />
-                    <TextTitle>[나]의 쓸애기통</TextTitle>
-                    <Spacer size={SIZES.LARGE} />
-                    <TrashCan src={trashcanImage}></TrashCan>
-                    <Spacer size={SIZES.MLARGE} />
-                </TrashBox>
-                <Footer onClick={handleFooterClick}>
-                    <Spacer size={SIZES.MINIMUN} />
-                    <FooterText>쓸애기통 공유하기</FooterText>
-                    <Spacer size={SIZES.MINIMUN} />
-                </Footer>
-            </OuterLine>
+            <IconBox>
+                <BsGrid3X3 onClick={handleClickIcon} />
+            </IconBox>
+            <Spacer size={SIZES.SMALL} />
+            <OuterShadow>
+                <OuterLine>
+                    <TrashBox>
+                        <Spacer size={SIZES.MEDIUM} />
+                        <TextTitle>[나]의 쓸애기통</TextTitle>
+                        <Spacer size={SIZES.LARGE} />
+                        <TrashCan src={trashcanImage}></TrashCan>
+                        <Spacer size={SIZES.MLARGE} />
+                    </TrashBox>
+                    <Footer onClick={handleFooterClick}>
+                        <Spacer size={SIZES.MINIMUN} />
+                        <FooterText>쓸애기통 공유하기</FooterText>
+                        <Spacer size={SIZES.MINIMUN} />
+                    </Footer>
+                </OuterLine>
 
-            {/* 공유 모달 */}
-            {isShareModalOpen && (
-                <ShareModal>
-                    <ModalContent>
-                        <p>쓸애기통을 공유하고 쓸애기를 받아보자!</p>
-                        <UrlBox>{window.location.href}</UrlBox>
-                        <ModalActions>
-                            <button onClick={() => navigator.clipboard.writeText(window.location.href)}>
-                                URL 복사
-                            </button>
-                            <button onClick={closeModal}>닫기</button>
-                        </ModalActions>
-                    </ModalContent>
-                </ShareModal>
-            )}
+                {/* Todo: 공유 기능 구현시 수정 */}
+                {isShareModalOpen && (
+                    <ShareModal>
+                        <ModalContent>
+                            <p>쓸애기통을 공유하고 쓸애기를 받아보자!</p>
+                            <UrlBox>{window.location.href}</UrlBox>
+                            <ModalActions>
+                                <button onClick={() => navigator.clipboard.writeText(window.location.href)}>
+                                    URL 복사
+                                </button>
+                                <button onClick={closeModal}>닫기</button>
+                            </ModalActions>
+                        </ModalContent>
+                    </ShareModal>
+                )}
+            </OuterShadow>
+            <Spacer size={SIZES.LARGE} />
         </Container>
     );
 };
 
 export default MainPage;
 
-// 스타일링 코드
+const IconBox = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    font-size: 2rem;
+    width: ${({ theme }) => theme.OuterSection};
+    ${({ theme }) => theme.fixedOuter};
+`
+
+const OuterShadow = styled.div`
+    border-radius: 2rem;
+    box-shadow: 0.3rem 0.3rem 0.6rem ${({ theme }) => theme.backgroundColors.grey};
+`
+
 const OuterLine = styled.div`
     display: flex;
     flex-direction: column;
@@ -66,8 +93,7 @@ const OuterLine = styled.div`
     border: 0.05rem solid;
     border-radius: 2rem;
     color: ${({ theme }) => theme.backgroundColors.dark};
-    box-shadow: 0.3rem 0.3rem 0.6rem ${({ theme }) => theme.backgroundColors.grey};
-    box-shadow: inset 0 0 0 0.05rem ${({ theme }) => theme.backgroundColors.dark}; /* 안쪽 테두리 */
+    box-shadow: inset 0 0 0 0.05rem ${({ theme }) => theme.backgroundColors.dark}; 
 `;
 
 const TrashBox = styled.div`

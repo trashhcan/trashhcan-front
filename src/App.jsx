@@ -11,6 +11,7 @@ import ChoiceLetter from './pages/ChoiceLetter';
 import WriteLetter from './pages/WriteLetter';
 import InitialPage from './pages/InitialPage';
 import MainPage from './pages/MainPage';
+import MenuPage from './pages/MenuPage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/nickname" element={<NickNamePage />} />
           <Route path="/mainpage" element={<MainPage />} />
           <Route path="/path" element={<KakaoRedirect />} />
+          <Route path="/menu" element={<MenuPage />} />
           <Route path="/ChoiceLetter" element={<ChoiceLetter />} />
           <Route path="/WriteLetter" element={<WriteLetter />} />
         </Routes>
