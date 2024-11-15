@@ -9,7 +9,6 @@ import KakaoRedirect from './pages/KakaoRedirect';
 import GoogleOAuthPage from './pages/GoogleOAuthPage';
 import Home from './pages/Home';
 import NickNamePage from './pages/NickNamePage';
-import Home from './pages/Home'
 import ChoiceLetter from './pages/ChoiceLetter';
 import WriteLetter from './pages/WriteLetter';
 
