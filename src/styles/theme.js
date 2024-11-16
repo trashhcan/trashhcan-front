@@ -2,8 +2,8 @@ import { css } from 'styled-components';
 
 export const theme = {
   InnerSection: '24vw',
-  MiddleSection: '48vw',
-  OuterSection: '96vw',
+  MiddleSection: '60vw',
+  OuterSection: '92vw',
 
   fixedInner: css`
     @media (min-width: 600px) {
@@ -28,4 +28,13 @@ export const theme = {
       font-size: 3rem;
     }
   `,
+
+  backgroundColors: {
+    primary: '#f0f8ff', // 기본 배경색 (Alice Blue)
+    secondary: '#f5f5f5', // 서브 배경색 (Light Grey)
+    accent: '#add8e6', // 강조 배경색 (Light Blue)
+    dark: '#30383F', // 어두운 배경색
+    light: '#FFFFFF', // 밝은 배경색
+    grey: '#CCD3D9',
+  },
 };
