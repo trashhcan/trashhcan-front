@@ -19,5 +19,5 @@ const StyledTitle = styled.div`
     background:  ${({ theme }) => theme.backgroundColors.light}; 
     box-shadow : 0 0 1rem 0.5rem ${({ theme }) => theme.backgroundColors.light}; 
     width: ${({ theme }) => theme.MiddleSection};
-    ${({ theme }) => theme.MiddleSection};
+    ${({ theme }) => theme.fixedMiddle};
 `;
