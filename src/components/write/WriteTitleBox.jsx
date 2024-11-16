@@ -19,9 +19,9 @@ const WriteContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: ${({ theme }) => theme.OuterSection};
   padding: 8px 12px;
-  background-color: #CCD3D9;
+  background-color: ${({theme}) => theme.backgroundColors.grey};
   border-radius: 13px;
   font-family: 'Pretendard-Bold', sans-serif;
 `;
@@ -33,7 +33,7 @@ const Text = styled.div`
 `;
 
 const Button = styled.button`
-  background-color: #30383F;
+  background-color: ${({theme}) => theme.backgroundColors.dark};
   color: #ffffff;
   border: none;
   padding: 6px 12px;

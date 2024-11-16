@@ -31,7 +31,8 @@ const LetterWrapper = styled.div`
 `
 const LetterBox = styled.div`
     display: flex;
-    width: 95%;
+    /* width: 95%; */
+    width: ${({ theme }) => theme.OuterSection};
     height: 70%;
     border: 1px solid #000000;
     background-image: url(${ping}); //후에 랜덤 돌려서 받는거 넣기
@@ -51,7 +52,7 @@ const BackButton = styled.button`
     margin-bottom: 10px;
 `
 const TitleContainer = styled.div`
-    width: 100%;
+    width: ${({ theme }) => theme.OuterSection};
     max-width: 365px;
     height: 50px;
     display: flex;
