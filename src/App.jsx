@@ -1,7 +1,7 @@
 import './App.css'
 import styled from 'styled-components'
 import GoogleLoginPage from './pages/GoogleLoginPage';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import KakaoLoginPage from './pages/KakaoLoginPage';
 import MakeTrashcan from './pages/MakeTrashcan';
 import KakaoRedirect from './pages/KakaoRedirect';
@@ -11,9 +11,18 @@ import ChoiceLetter from './pages/ChoiceLetter';
 import WriteLetter from './pages/WriteLetter';
 import InitialPage from './pages/InitialPage';
 import MainPage from './pages/MainPage';
+import { useState } from 'react';
 import MenuPage from './pages/MenuPage';
 
 function App() {
+  //편지지 이미지 페이지 간 전송필요함
+  const [selectedImage, setSelectedImage] = useState(null);
+  const navigate = useNavigate();
+
+  const handleImageSelect = (image)=> {
+    setSelectedImage(image);
+    navigate('/WriteLetter');
+  }
   return (
     <Outside>
       <AppDom>
@@ -26,6 +35,9 @@ function App() {
           <Route path="/nickname" element={<NickNamePage />} />
           <Route path="/mainpage" element={<MainPage />} />
           <Route path="/path" element={<KakaoRedirect />} />
+          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/ChoiceLetter" element={<ChoiceLetter onSelectImage={handleImageSelect}/>} />
+          <Route path="/WriteLetter" element={<WriteLetter selectedImage={selectedImage}/>} />
           <Route path="/menu" element={<MenuPage />} />
           <Route path="/ChoiceLetter" element={<ChoiceLetter />} />
           <Route path="/WriteLetter" element={<WriteLetter />} />
