@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import Spacer from './Spacer';
 import { SIZES } from '../styles/spacing';
 
-const TextBtnDark = ({ text }) => {
+const TextBtnDark = ({ text, onClick }) => {
     return (
-        <StyledButton>
+        <StyledButton onClick={onClick}>
             <Spacer size={SIZES.MINIMUN} />
             {text}
             <Spacer size={SIZES.MINIMUN} />

@@ -42,3 +42,20 @@ export const postLetter = async (senderId, payload) => {
     throw error;
   }
 };
+
+
+// GET 쓰레기 아이콘
+export const getIcons = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/api/letter/image`, {
+      headers: {
+        Authorization: `Bearer ${getAuthToken()}`,
+        'Content-Type': 'application/json',
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching letter images:', error.message);
+    throw error;
+  }
+}
