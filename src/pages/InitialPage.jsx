@@ -6,6 +6,7 @@ import Spacer from '../components/Spacer';
 import { SIZES } from '../styles/spacing';
 import BackgroundContainer from '../components/BackgroundContainer';
 import BackgroundImg from '../assets/images/login-background.png';
+import logoImg from '../assets/images/logo.png';
 
 //카카오로그인 버튼을 통해 바로 로그인 할 수 있도록.
 const K_REST_API_KEY = import.meta.env.VITE_APP_K_REST_API_KEY;
@@ -68,7 +69,7 @@ const LogoContainer = styled.div`
 `
 
 const Logo = styled.img.attrs({
-    src: 'src/assets/images/logo.png',
+    src: logoImg,
     alt: 'Logo'
 })`
     width: 100%;

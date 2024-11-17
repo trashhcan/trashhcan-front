@@ -12,6 +12,7 @@ import WriteLetter from './pages/WriteLetter';
 import InitialPage from './pages/InitialPage';
 import MainPage from './pages/MainPage';
 import { useState } from 'react';
+import MenuPage from './pages/MenuPage';
 
 function App() {
   //편지지 이미지 페이지 간 전송필요함
@@ -34,8 +35,12 @@ function App() {
           <Route path="/nickname" element={<NickNamePage />} />
           <Route path="/mainpage" element={<MainPage />} />
           <Route path="/path" element={<KakaoRedirect />} />
+          <Route path="/menu" element={<MenuPage />} />
           <Route path="/ChoiceLetter" element={<ChoiceLetter onSelectImage={handleImageSelect}/>} />
           <Route path="/WriteLetter" element={<WriteLetter selectedImage={selectedImage}/>} />
+          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/ChoiceLetter" element={<ChoiceLetter />} />
+          <Route path="/WriteLetter" element={<WriteLetter />} />
         </Routes>
       </AppDom>
     </Outside>
