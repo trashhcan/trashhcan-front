@@ -5,11 +5,12 @@ import WriteContent from '../components/write/WriteContent'
 import DiscardButton from '../components/write/DiscardButton';
 import styled from 'styled-components';
 import useRandomSubject from '../hooks/useRandomSubject';
-import RandomTitle from '../components/write/RandomTitle';;
+import RandomTitle from '../components/write/RandomTitle';
 
 const WriteLetter = ({ selectedImage }) => {
   const { isSubjectVisible, subject, toggleSubject, error } = useRandomSubject();//랜덤주제
   const [content, setContent] = useState(''); //편지내용 관리
+
 
   const handleContentChange = (e) => {
     setContent(e.target.value); //편지내용상태

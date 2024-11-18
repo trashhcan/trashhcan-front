@@ -78,7 +78,7 @@ export const getLetterBoxByMemberId = async (memberId) => {
 // GET 쓰레기 아이콘
 export const getTrash = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/api/letter/image`, {
+    const response = await axios.get(`${BASE_URL}/api/letterbox/image`, {
       headers: {
         Authorization: `Bearer ${getAuthToken()}`,
         'Content-Type': 'application/json',

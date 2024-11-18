@@ -8,6 +8,7 @@ import trashcanImage from '../assets/images/trashcan_nokki.png';
 import { BsGrid3X3 } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 import IconBox from '../components/IconBox';
+import { getTrash } from '../api/letterApi';
 
 const MainPage = () => {
     const navigate = useNavigate();
