@@ -1,28 +1,43 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import TextTitle from '../components/TextTitle';
 import Container from '../components/Container';
 import Spacer from '../components/Spacer';
 import { SIZES } from '../styles/spacing';
-import trashcanImage from '../assets/images/trashcan.png';
+import trashcanImage from '../assets/images/trashcan_nokki.png';
 import { BsGrid3X3 } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 import IconBox from '../components/IconBox';
-
+import { getTrash } from '../api/letterApi';
 
 const MainPage = () => {
     const navigate = useNavigate();
+    const [boxName, setBoxName] = useState('');
     const [isShareModalOpen, setShareModalOpen] = useState(false);
+    const [shareUrl, setShareUrl] = useState('')
+
+    useEffect(() => {
+        const memberId = sessionStorage.getItem('member_id');
+        const storedBoxName = sessionStorage.getItem('box_name');
+        const originalUrl = window.location.origin; // 원본 url
+
+        if (storedBoxName) {
+            setBoxName(storedBoxName);
+        }
+
+        if (memberId) {
+            setShareUrl(`${originalUrl}/member/${memberId}`); // URL에 member_id 붙이기
+        } else {
+            alert("공유하기 실패: 정의되지 않은 사용자입니다.");
+        }
+    }, []);
 
     const handleClickIcon = () => {
         navigate("/menu")
     }
 
     const handleFooterClick = () => {
-        // 현재 URL 가져오기
-        const currentUrl = window.location.href;
-        // 공유하기 로직 (모달 열기)
-        console.log(`현재 URL: ${currentUrl}`);
+        console.log(`공유할 URL: ${shareUrl}`);
         setShareModalOpen(true);
     };
 
@@ -30,6 +45,7 @@ const MainPage = () => {
 
     return (
         <Container>
+            <Spacer size={SIZES.SLARGE} />
             <IconBox justifyContent={"flex-end"}>
                 <BsGrid3X3 onClick={handleClickIcon} />
             </IconBox>
@@ -38,15 +54,13 @@ const MainPage = () => {
                 <OuterLine>
                     <TrashBox>
                         <Spacer size={SIZES.MEDIUM} />
-                        <TextTitle>[나]의 쓸애기통</TextTitle>
+                        <TextTitle>{boxName}의 쓸애기통</TextTitle>
                         <Spacer size={SIZES.LARGE} />
                         <TrashCan src={trashcanImage}></TrashCan>
-                        <Spacer size={SIZES.MLARGE} />
+                        <Spacer size={SIZES.SLARGE} />
                     </TrashBox>
                     <Footer onClick={handleFooterClick}>
-                        <Spacer size={SIZES.MINIMUN} />
                         <FooterText>쓸애기통 공유하기</FooterText>
-                        <Spacer size={SIZES.MINIMUN} />
                     </Footer>
                 </OuterLine>
 
@@ -55,9 +69,9 @@ const MainPage = () => {
                     <ShareModal>
                         <ModalContent>
                             <p>쓸애기통을 공유하고 쓸애기를 받아보자!</p>
-                            <UrlBox>{window.location.href}</UrlBox>
+                            <UrlBox>{shareUrl}</UrlBox>
                             <ModalActions>
-                                <button onClick={() => navigator.clipboard.writeText(window.location.href)}>
+                                <button onClick={() => navigator.clipboard.writeText(shareUrl)}>
                                     URL 복사
                                 </button>
                                 <button onClick={closeModal}>닫기</button>
@@ -66,7 +80,7 @@ const MainPage = () => {
                     </ShareModal>
                 )}
             </OuterShadow>
-            <Spacer size={SIZES.LARGE} />
+            <Spacer size={SIZES.SLARGE} />
         </Container>
     );
 };
@@ -94,7 +108,7 @@ const TrashBox = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 0.1rem solid ${({ theme }) => theme.backgroundColors.dark};
+    border: 0.05rem solid ${({ theme }) => theme.backgroundColors.dark};
     border-bottom: 0.105rem solid ${({ theme }) => theme.backgroundColors.dark};
     border-radius: 2rem;
     color: ${({ theme }) => theme.backgroundColors.dark};
@@ -103,8 +117,8 @@ const TrashBox = styled.div`
 `;
 
 const TrashCan = styled.img`
-    width: ${({ theme }) => theme.MiddleSection};
-    ${({ theme }) => theme.fixedMiddle};
+    width: ${({ theme }) => theme.MidOutSection};
+    ${({ theme }) => theme.fixedMidOut};
 `;
 
 const Footer = styled.div`
@@ -121,7 +135,7 @@ const Footer = styled.div`
 
 const FooterText = styled.p`
     font-family: 'Pretendard-Medium';
-    font-size: 1.2rem;
+    font-size: 0.9rem;
 `;
 
 const ShareModal = styled.div`

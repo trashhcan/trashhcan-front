@@ -41,7 +41,8 @@ const InitialPage = () => {
     return (
         <BackgroundContainer backgroundImage={BackgroundImg}>
             <LogoContainer>
-                <Spacer size={SIZES.XLARGE} />
+                <Spacer size={SIZES.LARGE} />
+                <Spacer size={SIZES.LARGE} />
                 <Logo />
                 <Spacer size={SIZES.MINIMUN} />
                 <Title>내쓰통</Title>
@@ -136,7 +137,7 @@ const Text = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-family: 'Pretendard-SemiBold';
     text-align: center;
 `

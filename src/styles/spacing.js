@@ -3,6 +3,7 @@ export const SIZES = {
   SMALL: '1rem',
   MEDIUM: '2rem',
   LARGE: '3rem',
+  SLARGE: '4.5rem',
   MLARGE: '8rem',
   XLARGE: '12rem',
 };

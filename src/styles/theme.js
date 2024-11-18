@@ -2,7 +2,9 @@ import { css } from 'styled-components';
 
 export const theme = {
   InnerSection: '24vw',
+  InMidSection: '32vw',
   MiddleSection: '60vw',
+  MidOutSection: '72vw',
   OuterSection: '92vw',
 
   fixedInner: css`
@@ -11,9 +13,21 @@ export const theme = {
     }
   `,
 
+  fixedInMid: css`
+    @media (min-width: 600px) {
+      width: 180px;
+    }
+  `,
+
   fixedMiddle: css`
     @media (min-width: 600px) {
       width: 360px;
+    }
+  `,
+
+  fixedMidOut: css`
+    @media (min-width: 600px) {
+      width: 400px;
     }
   `,
 
@@ -29,6 +43,12 @@ export const theme = {
     }
   `,
 
+  colors: {
+    light: '#FFFFFF', // 밝은 배경색
+    grey: '#CCD3D9',
+    dark: '#30383F',
+  },
+
   backgroundColors: {
     primary: '#f0f8ff', // 기본 배경색 (Alice Blue)
     secondary: '#f5f5f5', // 서브 배경색 (Light Grey)
@@ -36,6 +56,7 @@ export const theme = {
     dark: '#30383F', // 어두운 배경색
     light: '#FFFFFF', // 밝은 배경색
     grey: '#CCD3D9',
+    greySecond: '#616E7A',
   },
 
   googleButtonColors: {

@@ -9,9 +9,11 @@ import { SIZES } from '../styles/spacing';
 import TextInputLight from '../components/TextInputLight';
 import TextBtnDark from '../components/TextBtnDark';
 import { postBoxName } from '../api/loginAPIs';
+import { useNavigate } from 'react-router-dom';
 
 const NickNamePage = () => {
     // Todo: Seperate to hooks
+    const navigate = useNavigate();
     const [boxName, setBoxName] = useState("");
     const [memberId, setMemberId] = useState();
 
@@ -38,9 +40,10 @@ const NickNamePage = () => {
         console.log(payload)
 
         try {
-            const response = await postBoxName(payload)
-            sessionStorage.setItem('letter_box_id', response)
+            const response = await postBoxName(payload);
+            sessionStorage.setItem('letterbox_id', response);
             console.log('닉네임 설정 성공, Response:', response);
+            navigate("/mainpage");
         } catch (error) {
             console.error('닉네임 설정 실패:', error);
             alert('닉네임 설정 중 오류가 발생했습니다.');
