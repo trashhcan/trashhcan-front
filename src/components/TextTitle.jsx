@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const TextTitle = ({ children }) => {
+const TextTitle = ({ children, fontFamily }) => {
+    console.log("fontFamily prop:", fontFamily);
     return (
-        <StyledTitle>
+        <StyledTitle fontFamily={fontFamily}>
             {children}
         </StyledTitle>
     )
@@ -13,7 +14,7 @@ export default TextTitle
 
 const StyledTitle = styled.div`
     font-size: 1.2rem;
-    font-family: 'Pretendard-SemiBold';
+    font-family: ${({ fontFamily }) => fontFamily || 'Pretendard-SemiBold'};
     text-align: center;
     color: ${({ theme }) => theme.backgroundColors.dark};
     background:  ${({ theme }) => theme.backgroundColors.light}; 
