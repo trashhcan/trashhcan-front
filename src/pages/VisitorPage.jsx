@@ -6,7 +6,7 @@ import Spacer from '../components/Spacer';
 import { SIZES } from '../styles/spacing';
 import TextTitle from '../components/TextTitle';
 import Container from '../components/Container';
-import trashcanImage from '../assets/images/trashcan.png';
+import trashcanImage from '../assets/images/trashcan_nokki.png';
 import { IoMdAddCircle } from "react-icons/io";
 import IconBox from '../components/IconBox';
 
@@ -79,8 +79,8 @@ const TrashBox = styled.div`
 `;
 
 const TrashCan = styled.img`
-    width: ${({ theme }) => theme.MiddleSection};
-    ${({ theme }) => theme.fixedMiddle};
+    width: ${({ theme }) => theme.MidOutSection};
+    ${({ theme }) => theme.fixedMidOut};
 `;
 
 const ButtonContainer = styled.div`

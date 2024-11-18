@@ -17,7 +17,10 @@ const MenuPage = () => {
 
     return (
         <Container>
-            <Spacer size={SIZES.MLARGE} />
+            <Spacer size={SIZES.LARGE} />
+
+            <Spacer size={SIZES.LARGE} />
+            <Spacer size={SIZES.MINIMUN} />
             <TitleContainer>
                 <Icon>
                     <IoMdArrowBack onClick={handleGoBack} />
@@ -25,7 +28,7 @@ const MenuPage = () => {
                 <TextTitle>내가 두고 온 쓸애기들</TextTitle>
                 <EmptyBox></EmptyBox>
             </TitleContainer>
-            <Spacer size={SIZES.LARGE} />
+            <Spacer size={SIZES.MEDIUM} />
             { /* Todo: 자연스러운 스크롤 효과 추가하기 */}
             <TrashBox>
                 <TrashCard />

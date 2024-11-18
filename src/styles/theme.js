@@ -3,6 +3,7 @@ import { css } from 'styled-components';
 export const theme = {
   InnerSection: '24vw',
   MiddleSection: '60vw',
+  MidOutSection: '72vw',
   OuterSection: '92vw',
 
   fixedInner: css`
@@ -14,6 +15,12 @@ export const theme = {
   fixedMiddle: css`
     @media (min-width: 600px) {
       width: 360px;
+    }
+  `,
+
+  fixedMidOut: css`
+    @media (min-width: 600px) {
+      width: 400px;
     }
   `,
 
