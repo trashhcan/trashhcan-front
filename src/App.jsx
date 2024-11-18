@@ -13,7 +13,7 @@ import InitialPage from './pages/InitialPage';
 import MainPage from './pages/MainPage';
 import { useState } from 'react';
 import MenuPage from './pages/MenuPage';
-import VisitorPage from './pages/\bVisitorPage';
+import VisitorPage from './pages/VisitorPage';
 
 function App() {
   //편지지 이미지 페이지 간 전송필요함

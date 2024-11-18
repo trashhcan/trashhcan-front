@@ -76,7 +76,7 @@ export const getLetterBoxByMemberId = async (memberId) => {
 };
 
 // GET 쓰레기 아이콘
-export const getIcons = async () => {
+export const getTrash = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/api/letter/image`, {
       headers: {
@@ -84,6 +84,7 @@ export const getIcons = async () => {
         'Content-Type': 'application/json',
       },
     });
+    // console.log(response);
     return response.data;
   } catch (error) {
     console.error('Error fetching letter images:', error.message);

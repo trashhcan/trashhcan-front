@@ -12,7 +12,7 @@ const TextTitle = ({ children }) => {
 export default TextTitle
 
 const StyledTitle = styled.div`
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-family: 'Pretendard-SemiBold';
     text-align: center;
     color: ${({ theme }) => theme.backgroundColors.dark};

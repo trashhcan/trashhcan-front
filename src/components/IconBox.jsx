@@ -2,9 +2,7 @@ import styled from "styled-components";
 
 const IconBox = styled.div`
     display: flex;
-    justify-content: flex-end;
-    font-size: 2rem;
-    font-size: ${({ fontSize }) => fontSize || "2rem"};
+    font-size: ${({ fontSize }) => fontSize || "1.8rem"};
     width: ${({ theme }) => theme.OuterSection};
     ${({ theme }) => theme.fixedOuter};
     justify-content: ${({ justifyContent }) => justifyContent || "center"};
