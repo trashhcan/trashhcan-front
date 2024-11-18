@@ -4,6 +4,7 @@ const IconBox = styled.div`
     display: flex;
     justify-content: flex-end;
     font-size: 2rem;
+    font-size: ${({ fontSize }) => fontSize || "2rem"};
     width: ${({ theme }) => theme.OuterSection};
     ${({ theme }) => theme.fixedOuter};
     justify-content: ${({ justifyContent }) => justifyContent || "center"};
