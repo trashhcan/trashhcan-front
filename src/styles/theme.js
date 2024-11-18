@@ -37,4 +37,8 @@ export const theme = {
     light: '#FFFFFF', // 밝은 배경색
     grey: '#CCD3D9',
   },
+
+  googleButtonColors: {
+    
+  }
 };

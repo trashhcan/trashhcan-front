@@ -6,14 +6,22 @@ import { IoMdArrowBack } from "react-icons/io";
 import TrashCard from '../components/TrashCard';
 import { SIZES } from '../styles/spacing';
 import Spacer from '../components/Spacer';
+import { useNavigate } from 'react-router-dom';
 
 const MenuPage = () => {
+    const navigate = useNavigate();
+
+    const handleGoBack = () => {
+        navigate(-1);
+    };
+
     return (
         <Container>
-            <Spacer size={SIZES.MLARGE} />
+            <Spacer size={SIZES.LARGE} />
+            <Spacer size={SIZES.LARGE} />
             <TitleContainer>
                 <Icon>
-                    <IoMdArrowBack />
+                    <IoMdArrowBack onClick={handleGoBack} />
                 </Icon>
                 <TextTitle>내가 버린 쓸애기들</TextTitle>
                 <EmptyBox></EmptyBox>
