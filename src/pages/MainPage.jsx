@@ -8,6 +8,7 @@ import trashcanImage from '../assets/images/trashcan_nokki.png';
 import { BsGrid3X3 } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 import IconBox from '../components/IconBox';
+import { getTrash } from '../api/letterApi';
 
 const MainPage = () => {
     const navigate = useNavigate();
@@ -56,12 +57,10 @@ const MainPage = () => {
                         <TextTitle>{boxName}의 쓸애기통</TextTitle>
                         <Spacer size={SIZES.LARGE} />
                         <TrashCan src={trashcanImage}></TrashCan>
-                        <Spacer size={SIZES.MLARGE} />
+                        <Spacer size={SIZES.SLARGE} />
                     </TrashBox>
                     <Footer onClick={handleFooterClick}>
-                        <Spacer size={SIZES.MINIMUN} />
                         <FooterText>쓸애기통 공유하기</FooterText>
-                        <Spacer size={SIZES.MINIMUN} />
                     </Footer>
                 </OuterLine>
 
@@ -109,7 +108,7 @@ const TrashBox = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 0.1rem solid ${({ theme }) => theme.backgroundColors.dark};
+    border: 0.05rem solid ${({ theme }) => theme.backgroundColors.dark};
     border-bottom: 0.105rem solid ${({ theme }) => theme.backgroundColors.dark};
     border-radius: 2rem;
     color: ${({ theme }) => theme.backgroundColors.dark};
@@ -136,7 +135,7 @@ const Footer = styled.div`
 
 const FooterText = styled.p`
     font-family: 'Pretendard-Medium';
-    font-size: 1.2rem;
+    font-size: 0.9rem;
 `;
 
 const ShareModal = styled.div`

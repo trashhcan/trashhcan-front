@@ -68,11 +68,11 @@ const Icon = styled.div`
     flex-direction: start;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
 `
 
 const EmptyBox = styled.div`
-    width: 2rem;
+    width: 1.8rem;
 `
 
 const TrashBox = styled.div`

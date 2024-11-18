@@ -14,6 +14,7 @@ const VisitorPage = () => {
     const navigate = useNavigate();
     const { id } = useParams(); // 동적 경로에서 id 추출
     const [visitorData, setVisitorData] = useState(null);
+    const [boxName, setBoxName] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -23,6 +24,12 @@ const VisitorPage = () => {
                     navigate("/");
                 } else { // 데이터가 있으면 상태 업데이트
                     setVisitorData(response);
+                    console.log(visitorData);
+                    sessionStorage.setItem('letterbox_id', response.id);
+                    sessionStorage.setItem('v_member_id', response.member_id);
+                    sessionStorage.setItem('v_box_name', response.box_name);
+
+                    setBoxName(response.box_name);
                 }
             } catch (error) {
                 console.error('[ERROR] VisitorPage fetchData:', error.message);
@@ -32,8 +39,11 @@ const VisitorPage = () => {
         fetchData();
     }, [id, navigate]);
 
+    const handleGoToMainPage = () => {
+        navigate("/mainpage")
+    }
     const handleSendLetter = () => {
-        navigate("/")
+        navigate("/maketrashcan")
     }
 
     return (
@@ -41,16 +51,18 @@ const VisitorPage = () => {
             {visitorData ? (
                 <Container>
                     <ButtonContainer>
-                        <SmallButton>내 쓸애기통 이동</SmallButton>
+                        <SmallButton onClick={handleGoToMainPage}>내 쓸애기통 이동</SmallButton>
                     </ButtonContainer>
                     <Spacer size={SIZES.SMALL} />
                     <TrashBox>
                         <Spacer size={SIZES.MEDIUM} />
-                        <TextTitle>[너]의 쓸애기통</TextTitle>
+                        <TextTitle>{boxName}의 쓸애기통</TextTitle>
                         <Spacer size={SIZES.LARGE} />
                         <TrashCan src={trashcanImage}></TrashCan>
                         <Spacer size={SIZES.MEDIUM} />
-                        <IconBox fontSize={'3rem'}><IoMdAddCircle /></IconBox>
+                        <IconBox fontSize={'3.2rem'}>
+                            <IoMdAddCircle onClick={handleSendLetter} />
+                        </IconBox>
                         <Spacer size={SIZES.SMALL} />
                     </TrashBox>
                 </Container>
@@ -92,12 +104,13 @@ const ButtonContainer = styled.div`
 
 const SmallButton = styled.button`
     font-family: 'Pretendard-Bold';
-    font-size: 0.8rem;
+    font-size: 0.75rem;
 
     background-color: ${({ theme }) => theme.backgroundColors.light};
     border: 0.1rem solid ${({ theme }) => theme.backgroundColors.dark};
     border-radius: 0.5rem;
-    padding-top: 0.4rem;
-    padding-bottom: 0.4rem;
-    width: 30%;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    width: ${({ theme }) => theme.InMidSection};
+    ${({ theme }) => theme.fixedInMid};
 `;

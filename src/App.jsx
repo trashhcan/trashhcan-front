@@ -13,17 +13,24 @@ import InitialPage from './pages/InitialPage';
 import MainPage from './pages/MainPage';
 import { useState } from 'react';
 import MenuPage from './pages/MenuPage';
-import VisitorPage from './pages/\bVisitorPage';
+import VisitorPage from './pages/VisitorPage';
 
 function App() {
   //편지지 이미지 페이지 간 전송필요함
+  const [selectedTrash, setSelectedTrash] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const navigate = useNavigate();
+
+  const handleTrashSelect = (trash) => {
+    setSelectedTrash(trash);
+    navigate('/ChoiceLetter');
+  }
 
   const handleImageSelect = (image) => {
     setSelectedImage(image);
     navigate('/WriteLetter');
   }
+
   return (
     <Outside>
       <AppDom>
@@ -41,10 +48,12 @@ function App() {
           <Route path="/member/:id" element={<VisitorPage />} />
 
           <Route path="/menu" element={<MenuPage />} />
-          <Route path="/maketrashcan" element={<MakeTrashcan />} />
+          <Route path="/maketrashcan" element={<MakeTrashcan onSelectTrash={handleTrashSelect} />} />
           <Route path="/ChoiceLetter" element={<ChoiceLetter onSelectImage={handleImageSelect} />} />
           <Route path="/WriteLetter" element={<WriteLetter selectedImage={selectedImage} />} />
           <Route path="/menu" element={<MenuPage />} />
+
+          <Route path="/maketrashcan" element={<MakeTrashcan />} />
           <Route path="/ChoiceLetter" element={<ChoiceLetter />} />
           <Route path="/WriteLetter" element={<WriteLetter />} />
         </Routes>
