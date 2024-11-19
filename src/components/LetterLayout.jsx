@@ -41,7 +41,10 @@ const LetterBox = styled.div`
     width: ${({ theme }) => theme.OuterSection};
     height: 70%;
     border: 1px solid #000000;
-    background-image: url(${({ $backgroundImage }) => $backgroundImage || '/path/to/default/image.png'});
+    /* background-image: url(${({ $backgroundImage }) => $backgroundImage || '/path/to/default/image.png'}); */
+    background: 
+    linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), 
+    url(${({ $backgroundImage }) => $backgroundImage || '/path/to/default/image.png'});
     background-position: center;
     max-width: 365px;
     height: 640px;
