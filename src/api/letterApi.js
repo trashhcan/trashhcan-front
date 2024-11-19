@@ -12,7 +12,7 @@ const getAuthToken = () => {
   
 // JWT 토큰 가져오기
 const getAuthTokenFromSS = () => {
-    const token = sessionStorage.getItem('authToken');
+    const token = localStorage.getItem('authToken');
     // console.log('JWT Token:', token); // 확인용 로그
     return token;
   };

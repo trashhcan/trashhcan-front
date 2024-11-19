@@ -18,7 +18,7 @@ const NickNamePage = () => {
     const [memberId, setMemberId] = useState();
 
     useEffect(() => {
-        setMemberId(Number(sessionStorage.getItem('member_id')));
+        setMemberId(Number(localStorage.getItem('member_id')));
         console.log(memberId)
     }, [])
 
@@ -41,7 +41,7 @@ const NickNamePage = () => {
 
         try {
             const response = await postBoxName(payload);
-            sessionStorage.setItem('letterbox_id', response);
+            localStorage.setItem('letterbox_id', response);
             console.log('닉네임 설정 성공, Response:', response);
             navigate("/mainpage");
         } catch (error) {

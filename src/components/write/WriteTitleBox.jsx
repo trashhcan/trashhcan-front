@@ -5,8 +5,8 @@ const WriteTitleBox = ({ onToggleSubject, isSubjectVisible }) => {
   const [nickname, setNickname] = useState('');
 
   useEffect(() => {
-    //sessionStorage에서 v_box_name 값 가져오기
-    const storedNickname = sessionStorage.getItem('v_box_name');
+    //localStorage에서 v_box_name 값 가져오기
+    const storedNickname = localStorage.getItem('v_box_name');
     if (storedNickname) {
         setNickname(storedNickname);
     }

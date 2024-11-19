@@ -25,7 +25,7 @@ const MakeTrashcan = ({ onSelectTrash }) => {
   const handleOkClick = () => {
     if (onSelectTrash) {
       onSelectTrash(`http://${currentImage}`); //현재 이미지 넘기도록 저장
-      sessionStorage.setItem('trashimage_url', `http://${currentImage}`);
+      localStorage.setItem('trashimage_url', `http://${currentImage}`);
     }
   };
 

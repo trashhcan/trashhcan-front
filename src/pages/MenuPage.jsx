@@ -24,7 +24,7 @@ const MenuPage = () => {
             setLoading(true);
             setError(null);
             try {
-                const memberId = sessionStorage.getItem('member_id'); // 사용자 ID
+                const memberId = localStorage.getItem('member_id'); // 사용자 ID
                 const data = await getMyWriteLetters(memberId);
                 setLetters(data);
                 // console.log('data:', data);

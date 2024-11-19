@@ -30,9 +30,9 @@ const TrashCanContainer = ({memberId}) => {
             setLoading(true);
             setError(null);
             try {
-                // const memberId = sessionStorage.getItem('member_id'); //내계정에서멤버아이디다옴
+                // const memberId = localStorage.getItem('member_id'); //내계정에서멤버아이디다옴
                 // const data = await getTrashData(memberId);
-                const effectiveMemberId = memberId || sessionStorage.getItem('member_id');
+                const effectiveMemberId = memberId || localStorage.getItem('member_id');
                 if (!effectiveMemberId) {
                     throw new Error('Member ID가 정의되지 않았습니다.');
                 }

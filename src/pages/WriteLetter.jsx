@@ -14,9 +14,9 @@ const WriteLetter = ({ selectedImage }) => {
   const [content, setContent] = useState(''); //편지내용 관리
 
   const navigate = useNavigate();
-  const sender_id = sessionStorage.getItem('member_id');
-  const letterbox_id = sessionStorage.getItem('letterbox_id');
-  const trashimage_url = sessionStorage.getItem('trashimage_url');
+  const sender_id = localStorage.getItem('member_id');
+  const letterbox_id = localStorage.getItem('letterbox_id');
+  const trashimage_url = localStorage.getItem('trashimage_url');
 
   const handleContentChange = (e) => {
     setContent(e.target.value); //편지내용상태

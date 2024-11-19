@@ -6,7 +6,7 @@ const BASE_URL = 'https://trashhcandoit.p-e.kr'; // 배포용
 
 // JWT 토큰 가져오기
 const getAuthToken = () => {
-    const token = sessionStorage.getItem('authToken');
+    const token = localStorage.getItem('authToken');
     // console.log('JWT Token:', token); // 확인용 로그
     return token;
 };
@@ -20,7 +20,7 @@ export const postBoxName = async (payload) => {
       },
     });
     
-    sessionStorage.setItem('letter_box', response.data)
+    localStorage.setItem('letter_box', response.data)
     return response.data;
   } catch (error) {
     console.error('Error submitting letter:', error.message);

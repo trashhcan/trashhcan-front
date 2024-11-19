@@ -16,8 +16,8 @@ const MainPage = () => {
     const [shareUrl, setShareUrl] = useState('');
 
     useEffect(() => {
-        const memberId = sessionStorage.getItem('member_id');
-        const storedBoxName = sessionStorage.getItem('box_name');
+        const memberId = localStorage.getItem('member_id');
+        const storedBoxName = localStorage.getItem('box_name');
         const originalUrl = window.location.origin;
 
         if (storedBoxName) {
