@@ -8,11 +8,11 @@ import trashImage from '../assets/images/trashcan_nokki.png';
 import leftArrow from '../assets/images/a.png';
 import rightArrow from '../assets/images/a.png';
 
-const TrashCanContainer = () => {
-    const [trashItems, setTrashItems] = useState([]); // 쓰레기 데이터
-    const [currentPage, setCurrentPage] = useState(0); // 현재 페이지
-    const [loading, setLoading] = useState(true); // 로딩 상태
-    const [error, setError] = useState(null); // 에러 상태
+const TrashCanContainer = ({memberId}) => {
+    const [trashItems, setTrashItems] = useState([]); //쓰레기 데이터
+    const [currentPage, setCurrentPage] = useState(0); //현재 페이지
+    const [loading, setLoading] = useState(true); //로딩 상태
+    const [error, setError] = useState(null); //에러 상태
 
     const trashCoordinates = [
         { top: '62%', left: '30%',width: '18%' },
@@ -30,8 +30,13 @@ const TrashCanContainer = () => {
             setLoading(true);
             setError(null);
             try {
-                const memberId = sessionStorage.getItem('member_id');
-                const data = await getTrashData(memberId);
+                // const memberId = sessionStorage.getItem('member_id'); //내계정에서멤버아이디다옴
+                // const data = await getTrashData(memberId);
+                const effectiveMemberId = memberId || sessionStorage.getItem('member_id');
+                if (!effectiveMemberId) {
+                    throw new Error('Member ID가 정의되지 않았습니다.');
+                }
+                const data = await getTrashData(effectiveMemberId);
                 console.log('API Response:', data);//확인용ok
                 setTrashItems(data.letters || []); //데이터가 없음 빈배열로 처리
             } catch (err) {
@@ -42,7 +47,7 @@ const TrashCanContainer = () => {
             }
         };
         fetchData();
-    }, []);
+    }, [memberId]);
 
     const handlePageChange = (direction) => {
         if (direction === 'next' && (currentPage + 1) * 8 < trashItems.length) {

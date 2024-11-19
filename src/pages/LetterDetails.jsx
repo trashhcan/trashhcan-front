@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useParams, useNavigate } from 'react-router-dom';
 import LetterLayout from '../components/LetterLayout';
 import { fetchLetterDetails } from '../api/trashApi';
+import RandomTitle from '../components/write/RandomTitle';
 
 const LetterDetails = () => {
     const { letter_id } = useParams();
@@ -56,16 +57,20 @@ const Title = styled.h1`
     padding: 8px 12px;
     background-color: ${({ theme }) => theme.backgroundColors.grey};
     border-radius: 13px;
-    margin: 0 auto;
+    margin:  auto;
     width: ${({ theme }) => theme.OuterSection};
 `;
 
 const ContentWrapper = styled.div`
-    width: 90%;
+    width: ${({ theme }) => theme.OuterSection};
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-direction: column;
+    align-items: center; /* 중앙 정렬 */
+    margin-top: 10%;
 `;
+
 
 const ContentText = styled.p`
     width: 83%;
