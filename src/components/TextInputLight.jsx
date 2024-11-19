@@ -1,9 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const TextInputLight = ({ placeholder }) => {
+const TextInputLight = ({ placeholder, value, onChange }) => {
     return (
-        <StyledInput placeholder={placeholder} />
+        <StyledInput
+            placeholder={placeholder}
+            value={value}
+            onChange={onChange}
+        />
     );
 }
 

@@ -1,4 +1,3 @@
-// src/pages/KakaoRedirect.jsx
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
@@ -16,7 +15,7 @@ export function KakaoRedirect() {
       try {
         const response = await axios.post(
           `http://trashhcan-dev.p-e.kr:8080/login/kakao/callback`, // 실제 백엔드 주소 필요
-          { code: code }, // POST 요청의 body에 code를 포함
+          { code: code },
           {
             headers: {
               "Content-Type": "application/json",
@@ -25,14 +24,21 @@ export function KakaoRedirect() {
         );
 
         const data = response.data;
-        console.log(data);
-        console.log(data.result.user_id);
-        console.log(data.result.jwt);
+        console.log(data)
+        // 세션 스토리지에 저장
+        sessionStorage.setItem("member_id", data.id);
+        sessionStorage.setItem("authToken", data.token.accessToken);
+        sessionStorage.setItem("refreshToken", data.token.refreshToken);
 
-        // 로그인 성공 후 페이지 이동
-        navigate('/maketrashcan');
+        // 닉네임 여부로 라우팅 결정
+        if (!data.box_name) {
+          navigate('/nickname');
+        } else {
+          sessionStorage.setItem("box_name", data.box_name);
+          navigate('/mainpage');
+        }
       } catch (error) {
-        console.error("오류 발생:", error);
+        console.error("카카오 로그인 오류:", error);
       }
     };
 

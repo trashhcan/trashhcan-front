@@ -6,6 +6,10 @@ import Spacer from '../components/Spacer';
 import { SIZES } from '../styles/spacing';
 import BackgroundContainer from '../components/BackgroundContainer';
 import BackgroundImg from '../assets/images/login-background.png';
+import logoImg from '../assets/images/logo.png';
+import KakaoButtonImg from '../assets/images/kakao_login_large_narrow.png'
+import GoogleLoginBtn from '../components/GoogleLoginBtn';
+import KakaoLoginBtn from '../components/KakaoLoginBtn';
 
 //카카오로그인 버튼을 통해 바로 로그인 할 수 있도록.
 const K_REST_API_KEY = import.meta.env.VITE_APP_K_REST_API_KEY;
@@ -37,20 +41,26 @@ const InitialPage = () => {
     return (
         <BackgroundContainer backgroundImage={BackgroundImg}>
             <LogoContainer>
-                <Spacer size={SIZES.XLARGE} />
+                <Spacer size={SIZES.LARGE} />
+                <Spacer size={SIZES.LARGE} />
                 <Logo />
                 <Spacer size={SIZES.MINIMUN} />
                 <Title>내쓰통</Title>
             </LogoContainer>
-            <Spacer size={SIZES.LARGE} />
+            <Spacer size={SIZES.MEDIUM} />
             <Buttons>
-                <Button onClick={kakaoLoginHandler}>카카오 로그인</Button>
+                <KakaoLoginBtn onClick={kakaoLoginHandler} />
                 <Spacer size={SIZES.MINIMUN} />
+                <GoogleLoginBtn onClick={googleLoginHandlerServer} />
+                <Spacer size={SIZES.MINIMUN} />
+                {/* 프론트 단독 구글 로그인 버튼
                 <GoogleLoginButton onClick={googleLoginHandler}>구글 로그인</GoogleLoginButton>
-                <Spacer size={SIZES.MINIMUN} />
-                <Button onClick={googleLoginHandlerServer}>구글 로그인(서버)</Button>
-                <Spacer size={SIZES.MINIMUN} />
-                <Text>쓸데 없는 편지 쓰러 가 보아요</Text>
+                <Spacer size={SIZES.MINIMUN} /> */}
+                <TextContainer>
+                    <Text>쓸데 없는 편지 쓰러 가</Text>
+                    <InnerText>(메롱바보)</InnerText>
+                    <Text>보아요.</Text>
+                </TextContainer>
             </Buttons>
         </BackgroundContainer>
     );
@@ -68,7 +78,7 @@ const LogoContainer = styled.div`
 `
 
 const Logo = styled.img.attrs({
-    src: 'src/assets/images/logo.png',
+    src: logoImg,
     alt: 'Logo'
 })`
     width: 100%;
@@ -101,6 +111,43 @@ const Button = styled.button`
     width: 100%;
 `
 
-const Text = styled.div`
+const KakaoButton = styled.img.attrs({
+    src: KakaoButtonImg,
+    alt: '카카오 로그인 버튼',
+})`
+    width: 100%;
+    cursor: pointer;
+`;
 
+const TextContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.15rem;
+    width: ${({ theme }) => theme.MiddleSection};
+    ${({ theme }) => theme.fixedMiddle};
+    color: ${({ theme }) => theme.backgroundColors.dark};
+    background:  ${({ theme }) => theme.backgroundColors.light}; 
+    box-shadow : 0 0 1rem 0.5rem ${({ theme }) => theme.backgroundColors.light}; 
+`
+
+const Text = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-family: 'Pretendard-SemiBold';
+    text-align: center;
+`
+
+const InnerText = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.5rem;
+    font-family: 'Pretendard-SemiBold';
+    text-align: center;
 `

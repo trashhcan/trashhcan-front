@@ -4,13 +4,30 @@ import back from '../assets/images/backbutton.png';
 import ChoiceTitleBox from '../components/write/ChoiceTitleBox';
 import randombtn from '../assets/images/randomBtn.svg';
 import styled from 'styled-components';
+import useRandomImg from '../hooks/useRandomImg';
 
-const ChoiceLetter = () => {
+const ChoiceLetter = ({ onSelectImage }) => {
+  //useRandomImg에서 이미지리스트 가져오기
+  const { currentImage, getNextImage, loading, error } = useRandomImg();
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
+  const handleOkClick = () => {
+    if (onSelectImage) {
+      onSelectImage(`http://${currentImage}`); //현재이미지넘기도록저장
+      sessionStorage.setItem('letterimage_url', `http://${currentImage}`);
+    }
+  };
+
   return (
-    <LetterLayout titleComponent={<ChoiceTitleBox />}>
+    <LetterLayout
+      titleComponent={<ChoiceTitleBox />}
+      backgroundImage={`http://${currentImage}`} //배경 이미지 설정
+    >
       <ChoiceLayout>
-        <RandomBtn src={randombtn} alt="랜덤 편지지" />
-        <OkBtn alt='확인'>확인</OkBtn>
+        <RandomBtn onClick={getNextImage} src={randombtn} alt="랜덤 편지지" />
+        <OkBtn onClick={handleOkClick} alt='확인'>확인</OkBtn>
       </ChoiceLayout>
     </LetterLayout>
   )

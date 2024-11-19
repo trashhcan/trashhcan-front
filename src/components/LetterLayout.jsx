@@ -3,18 +3,24 @@ import ping from '../assets/images/ping.png';
 import styled from 'styled-components';
 import back from '../assets/images/back.svg';
 import { BiArrowBack } from "react-icons/bi";
+import { useNavigate } from 'react-router-dom';
 
-const LetterLayout = ({titleComponent, children}) => {
-    //
+const LetterLayout = ({ titleComponent, children, backgroundImage }) => {
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate(-1);
+  }
+
   return (
     <LetterWrapper>
-        <BackButton><BiArrowBack size={22} /></BackButton>
-        <TitleContainer>
-            {titleComponent}
-        </TitleContainer>
-        <LetterBox>
-            {children}
-        </LetterBox>
+      <BackButton><BiArrowBack size={22} onClick={handleBack} /></BackButton>
+      <TitleContainer>
+        {titleComponent}
+      </TitleContainer>
+      <LetterBox $backgroundImage={backgroundImage}>
+        {children}
+      </LetterBox>
     </LetterWrapper>
   )
 }
@@ -31,12 +37,12 @@ const LetterWrapper = styled.div`
 `
 const LetterBox = styled.div`
     display: flex;
-    width: 95%;
+    /* width: 95%; */
+    width: ${({ theme }) => theme.OuterSection};
     height: 70%;
     border: 1px solid #000000;
-    background-image: url(${ping}); //후에 랜덤 돌려서 받는거 넣기
+    background-image: url(${({ $backgroundImage }) => $backgroundImage || '/path/to/default/image.png'});
     background-position: center;
-    background-size: cover;
     max-width: 365px;
     height: 640px;
 `
@@ -51,7 +57,7 @@ const BackButton = styled.button`
     margin-bottom: 10px;
 `
 const TitleContainer = styled.div`
-    width: 100%;
+    width: ${({ theme }) => theme.OuterSection};
     max-width: 365px;
     height: 50px;
     display: flex;

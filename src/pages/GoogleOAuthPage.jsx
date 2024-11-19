@@ -1,32 +1,40 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 const GoogleOAuthPage = () => {
-    // 현재 url에서 code 부분 추출
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get("code");
+    const navigate = useNavigate();
 
-    // 로그인 성공시 구글 로그인 페이지로 이동 (메인페이지 이동)
-    const loginSuccess = () => {
-        navigate("/googleloginpage");
-        window.location.reload();
-    };
+    const code = new URL(window.location.href).searchParams.get("code");
+    console.log("Google OAuth code:", code);
 
     const loginHandler = async code => {
-        const data = {
-            code: code,
-        };
         try {
-            const res = await axios.post(
-                "https://server.sample.net/auth/login", // 여기 토큰을 받는 서버 주소 입력
-                data,
+            const response = await axios.post(
+                `http://trashhcan-dev.p-e.kr:8080/login/google/callback`, // 실제 백엔드 주소 필요
+                { code: code },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
             );
-            // 토큰 localstorage에 저장
-            const accessToken = res.data.accessToken;
-            localStorage.setItem("accessToken", accessToken);
-            // 신규/기존 회원 여부에 따라 페이지 이동
-            loginSuccess();
+
+            const data = response.data;
+            console.log(data)
+            sessionStorage.setItem("member_id", data.id);
+            sessionStorage.setItem("authToken", data.token.accessToken);
+            sessionStorage.setItem("refreshToken", data.token.refreshToken);
+
+            // 닉네임 여부로 라우팅 결정
+            if (!data.box_name) {
+                navigate('/nickname');
+            } else {
+                sessionStorage.setItem("box_name", data.box_name);
+                navigate('/mainpage');
+            }
         } catch (error) {
-            console.log(error);
+            console.log('구글 로그인 오류:', error);
         }
     };
 
