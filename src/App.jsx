@@ -14,6 +14,7 @@ import MainPage from './pages/MainPage';
 import { useState } from 'react';
 import MenuPage from './pages/MenuPage';
 import VisitorPage from './pages/VisitorPage';
+import LetterDetail from './pages/LetterDetails';
 import EndPage from './pages/EndPage';
 
 function App() {
@@ -57,6 +58,8 @@ function App() {
           <Route path="/maketrashcan" element={<MakeTrashcan />} />
           <Route path="/ChoiceLetter" element={<ChoiceLetter />} />
           <Route path="/WriteLetter" element={<WriteLetter />} />
+
+          <Route path="/mainpage/letter/:letter_id" element={<LetterDetail />} />
         </Routes>
       </AppDom>
     </Outside>

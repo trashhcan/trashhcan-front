@@ -4,13 +4,13 @@ import trashImg from '../assets/images/banana-fresh.png'
 import Spacer from './Spacer'
 import { SIZES } from '../styles/spacing'
 
-const TrashCard = () => {
+const TrashCard = ({ imageUrl, content }) => {
     return (
         <Card>
             {/* Todo: 카드 컴포넌트마다 링크 추가하기 */}
             <Spacer size={SIZES.MINIMUN} />
             <CardImg src={trashImg} />
-            <CardLine>세상에서 제일...</CardLine>
+            <CardLine>{content.substring(0, 5)}...</CardLine>
             <Spacer size={SIZES.MINIMUN} />
         </Card>
     )
