@@ -13,7 +13,7 @@ import randombtn from '../assets/images/randomBtn.svg';
 const MakeTrashcan = ({ onSelectTrash }) => {
   const navigate = useNavigate();
   const { currentImage, getNextTrash, loading, error } = useRandomTrash();
-  console.log("currentImage:", currentImage); // 이미지 URL 확인
+  // console.log("currentImage:", currentImage); // 이미지 URL 확인
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
