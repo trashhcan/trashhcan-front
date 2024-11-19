@@ -1,8 +1,8 @@
 //내 쓸애기통 api요청
 import axios from "axios";
 
-// const BASE_URL = 'http://trashhcan-dev.p-e.kr:8080'; // 개발용
-const BASE_URL = 'https://trashhcandoit.p-e.kr:8080'; // 배포용
+const BASE_URL = 'http://trashhcan-dev.p-e.kr:8080'; // 개발용
+// const BASE_URL = 'https://trashhcandoit.p-e.kr:8080'; // 배포용
 
 export const getTrashData = async (memberId) => {
     try {
