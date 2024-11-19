@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 // const BASE_URL = 'http://trashhcan-dev.p-e.kr:8080'; // 개발용
-const BASE_URL = 'https://trashhcandoit.p-e.kr:8080'; // 배포용
+const BASE_URL = 'https://trashhcandoit.p-e.kr'; // 배포용
 
 export const fetchLetterDetails = async (letterId) => {
     try {

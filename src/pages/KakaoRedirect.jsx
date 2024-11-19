@@ -14,7 +14,7 @@ export function KakaoRedirect() {
     const sendCodeToBackend = async () => {
       try {
         const response = await axios.post(
-          `https://trashhcandoit.p-e.kr:8080/login/google/callback`, // 실제 백엔드 주소
+          `https://trashhcandoit.p-e.kr/login/google/callback`, // 실제 백엔드 주소
           // `http://trashhcan-dev.p-e.kr:8080/login/kakao/callback`, // 개발용 백엔드 주소 
           { code: code },
           {
