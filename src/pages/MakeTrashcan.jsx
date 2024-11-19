@@ -77,9 +77,11 @@ const TrashCardContainer = styled.div`
 
 const TrashCardSend = styled.div`
   background-image: url(${({ $backgroundImage }) => $backgroundImage || '/path/to/default/image.png'});
-  background-size: cover;
+  background-size: 70%;
+  background-repeat: no-repeat;
   background-position: center;
   width: 100%;
+  height: 100%;
   aspect-ratio: 1;
   border-radius: 1rem;
 `;
