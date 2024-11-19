@@ -18,6 +18,14 @@ const VisitorPage = () => {
     const [boxName, setBoxName] = useState('');
 
     useEffect(() => {
+        // const token = sessionStorage.getItem('auth_token');
+        // if (!token) {
+        //     //토큰이 없으면 로그인 페이지로 이동
+        //     navigate('/');
+        //     return;
+        // }
+           
+
         const fetchData = async () => {
             try {
                 const response = await getLetterBoxByMemberId(id);
