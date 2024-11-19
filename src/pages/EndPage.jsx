@@ -7,9 +7,10 @@ const EndPage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        const v_member_id = sessionStorage.getItem('v_member_id');
         const timer = setTimeout(() => {
-            navigate('/mainpage'); // 3초 후 /mainpage로 이동
-        }, 3000);
+            navigate(`/member/${v_member_id}`); // 2.5초 후 상대 쓸애기통으로 이동
+        }, 2500);
 
         return () => clearTimeout(timer); // 컴포넌트 언마운트 시 타이머 클리어
     }, [navigate]);

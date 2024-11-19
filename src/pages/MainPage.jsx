@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { LuMenu } from "react-icons/lu";
 import styled from 'styled-components';
+import { SIZES } from '../styles/spacing';
+import Spacer from '../components/Spacer';
 import TextTitle from '../components/TextTitle';
 import Container from '../components/Container';
-import Spacer from '../components/Spacer';
-import { SIZES } from '../styles/spacing';
-import trashcanImage from '../assets/images/trashcan_nokki.png';
-import { BsGrid3X3 } from "react-icons/bs";
-import { LuMenu } from "react-icons/lu";
-import { useNavigate } from 'react-router-dom';
 import IconBox from '../components/IconBox';
-import { getTrash } from '../api/letterApi';
 import TrashCanContainer from '../components/TrashCanContainer';
 
 const MainPage = () => {
@@ -28,7 +25,7 @@ const MainPage = () => {
         }
 
         if (memberId) {
-            setShareUrl(`${originalUrl}/member/${memberId}`); //URL에 member_id 붙이기
+            setShareUrl(`${originalUrl}/member/${memberId}`); // URL에 member_id 붙이기
         } else {
             alert("공유하기 실패: 정의되지 않은 사용자입니다.");
         }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { useParams, useNavigate } from 'react-router-dom';
 import LetterLayout from '../components/LetterLayout';
 import { fetchLetterDetails } from '../api/trashApi';
 import RandomTitle from '../components/write/RandomTitle';
@@ -8,9 +8,8 @@ import RandomTitle from '../components/write/RandomTitle';
 const LetterDetails = () => {
     const { letter_id } = useParams();
     const [letterDetails, setLetterDetails] = useState(null);
-    const [loading, setLoading] = useState(true); 
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const navigate = useNavigate();
 
     useEffect(() => {
         const getLetterData = async () => {
