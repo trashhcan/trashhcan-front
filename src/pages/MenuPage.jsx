@@ -43,7 +43,7 @@ const MenuPage = () => {
 
     return (
         <Container>
-            <Spacer size={SIZES.LARGE} />
+            <Spacer size={SIZES.SMALL} />
             <TitleContainer>
                 <Icon>
                     <IoMdArrowBack onClick={handleGoBack} />
@@ -83,7 +83,7 @@ const TitleContainer = styled.div`
     width: ${({ theme }) => theme.OuterSection};
     ${({ theme }) => theme.fixedOuter};
     position: absolute;
-    top: 15%;
+    top: 10%;
 `;
 
 const Icon = styled.div`
@@ -107,7 +107,7 @@ const TrashBox = styled.div`
     overflow-y: auto;
     padding: 1rem;
     position: absolute;
-    top: 22.5%;
+    top: 17%;
 `;
 
 const LoadingText = styled.div`

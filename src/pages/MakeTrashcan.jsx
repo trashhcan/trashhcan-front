@@ -34,7 +34,8 @@ const MakeTrashcan = ({ onSelectTrash }) => {
       <IconBox justifyContent={"flex-start"} fontSize={"1.5rem"}>
         <IoMdArrowBack onClick={handleClickIcon} />
       </IconBox>
-      <Spacer size={SIZES.MEDIUM} />
+      <Spacer size={SIZES.LARGE} />
+      {/* <Spacer size={SIZES.LARGE} /> */}
       <TextTitle>친구에게 보낼 쓸애기에요!</TextTitle>
       <Spacer size={SIZES.MEDIUM} />
       <TrashCardContainer>
@@ -45,6 +46,8 @@ const MakeTrashcan = ({ onSelectTrash }) => {
       <Spacer size={SIZES.MEDIUM} />
       <OkBtn onClick={handleOkClick} alt='확인'>확인</OkBtn>
       <Spacer size={SIZES.SLARGE} />
+      <Spacer size={SIZES.LARGE} />
+      <Spacer size={SIZES.LARGE} />
     </Container>
   );
 };

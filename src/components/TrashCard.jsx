@@ -62,4 +62,6 @@ const CardImg = styled.img`
 
 const CardLine = styled.div`
     font-size: 0.9rem;
+    font-family: 'Pretendard-Medium', sans-serif;;
+    font-size: 16px;
 `
