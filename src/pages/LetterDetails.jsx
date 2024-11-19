@@ -37,7 +37,9 @@ const LetterDetails = () => {
             backgroundImage={letterDetails.letterimage_url}
         >
             <ContentWrapper>
-                {/* 근데 이쪽에 편지주제도 출력해야할듯 */}
+                {letterDetails.letter_theme && (
+                    <RandomTitle subject={letterDetails.letter_theme} />
+                )}
                 <ContentText>{letterDetails.content}</ContentText>
             </ContentWrapper>
         </LetterLayout>
@@ -60,15 +62,18 @@ const Title = styled.h1`
 
 const ContentWrapper = styled.div`
     width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;
 
 const ContentText = styled.p`
-    width: 83%; //텍스트입력칸 여기가 딱인듯
+    width: 83%;
     height:  ${({ isSubjectVisible }) => (isSubjectVisible ? '70%' : '75%')};
     border: none;
     padding: 30px;
     font-size: 35px;
-    line-height: 1.5; //줄간격..디자인한테 다시 묻기
+    line-height: 1.5;
     font-family: 'HSSantokki-Regular', sans-serif;
     background: none;
     color: ${({ theme }) => theme.backgroundColors.dark};

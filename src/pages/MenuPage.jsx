@@ -43,8 +43,8 @@ const MenuPage = () => {
     return (
         <Container>
             <Spacer size={SIZES.LARGE} />
-            <Spacer size={SIZES.LARGE} />
-            <Spacer size={SIZES.MINIMUN} />
+            {/* <Spacer size={SIZES.LARGE} />
+            <Spacer size={SIZES.MINIMUN} /> */}
             <TitleContainer>
                 <Icon>
                     <IoMdArrowBack onClick={handleGoBack} />
@@ -53,19 +53,23 @@ const MenuPage = () => {
                 <EmptyBox></EmptyBox>
             </TitleContainer>
             <Spacer size={SIZES.MEDIUM} />
-            <TrashBox>
-                {letters.length === 0 ? (
-                    <EmptySpace />
-                ) : (
-                    letters.map((letter) => (
+            {loading ? (
+                <LoadingText>로딩 중...</LoadingText>
+            ) : error ? (
+                <ErrorText>{error}</ErrorText>
+            ) : letters.length === 0 ? (
+                <EmptyState>내가 두고 온 쓸애기가 없습니다.</EmptyState>
+            ) : (
+                <TrashBox>
+                    {letters.map((letter) => (
                         <TrashCard
                             key={letter.id}
                             imageUrl={letter.trashimage_url}
                             content={letter.content}
                         />
-                    ))
-                )}
-            </TrashBox>
+                    ))}
+                </TrashBox>
+            )}
         </Container>
     );
 };
@@ -79,6 +83,8 @@ const TitleContainer = styled.div`
     align-items: center;
     width: ${({ theme }) => theme.OuterSection};
     ${({ theme }) => theme.fixedOuter};
+    position: sticky;
+    top: 0;
 `;
 
 const Icon = styled.div`
@@ -114,7 +120,10 @@ const ErrorText = styled.div`
     color: red;
 `;
 
-const EmptySpace = styled.div`
-    height: 200px; /* 빈 공간의 높이 */
-    width: 100%;
+const EmptyState = styled.div`
+    text-align: center;
+    font-size: 1rem;
+    color: ${({ theme }) => theme.colors.primary};
+    margin-top: 20px;
 `;
+
