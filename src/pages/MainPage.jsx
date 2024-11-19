@@ -16,11 +16,18 @@ const MainPage = () => {
     const [shareUrl, setShareUrl] = useState('');
 
     useEffect(() => {
+        const vId = localStorage.getItem('v_id');
+        // console.log(vId);
+        if (vId) {
+            navigate(`/member/${vId}`);
+        }
+
         const memberId = localStorage.getItem('member_id');
         const storedBoxName = localStorage.getItem('box_name');
         const originalUrl = window.location.origin;
 
         if (storedBoxName) {
+
             setBoxName(storedBoxName);
         }
 
