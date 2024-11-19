@@ -15,14 +15,14 @@ const TrashCanContainer = ({memberId}) => {
     const [error, setError] = useState(null); //에러 상태
 
     const trashCoordinates = [
-        { top: '62%', left: '30%',width: '18%' },
-        { top: '66%', left: '50%',width: '17%'},
-        { top: '50%', left: '29%' ,width: '19%'},
-        { top: '48%', left: '48%' ,width: '20%'},
-        { top: '31%', left: '28%' ,width: '21%'},
-        { top: '22%', left: '51%' ,width: '19%'},
+        { top: '62%', left: '28%',width: '22%' },
+        { top: '66%', left: '48%',width: '20%'},
+        { top: '46%', left: '28%' ,width: '19%'},
+        { top: '45%', left: '47%' ,width: '22%'},
+        { top: '24%', left: '29%' ,width: '24%'},
+        { top: '27%', left: '51%' ,width: '19%'},
         { top: '10%', left: '26%' ,width: '18%'},
-        { top: '69%', left: '71%' ,width: '21%'},
+        { top: '68%', left: '71%' ,width: '19%'},
     ];
 
     useEffect(() => {
@@ -37,7 +37,7 @@ const TrashCanContainer = ({memberId}) => {
                     throw new Error('Member ID가 정의되지 않았습니다.');
                 }
                 const data = await getTrashData(effectiveMemberId);
-                console.log('API Response:', data);//확인용ok
+                // console.log('API Response:', data);//확인용ok
                 setTrashItems(data.letters || []); //데이터가 없음 빈배열로 처리
             } catch (err) {
                 setError('쓰레기 데이터를 불러오는 데 실패했습니다.');

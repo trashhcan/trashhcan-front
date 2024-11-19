@@ -6,7 +6,7 @@ const BASE_URL = 'http://trashhcan-dev.p-e.kr:8080';
 // JWT 토큰 가져오기
 const getAuthToken = () => {
     const token = sessionStorage.getItem('authToken');
-    console.log('JWT Token:', token); // 확인용 로그
+    // console.log('JWT Token:', token); // 확인용 로그
     return token;
 };
   

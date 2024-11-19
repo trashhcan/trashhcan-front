@@ -21,7 +21,7 @@ const GoogleOAuthPage = () => {
             );
 
             const data = response.data;
-            console.log(data)
+            // console.log(data)
             sessionStorage.setItem("member_id", data.id);
             sessionStorage.setItem("authToken", data.token.accessToken);
             sessionStorage.setItem("refreshToken", data.token.refreshToken);

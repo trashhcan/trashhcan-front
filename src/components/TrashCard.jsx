@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { MdArrowOutward } from "react-icons/md";
 
 const TrashCard = ({ id, imageUrl, content }) => {
-    console.log('trash:', id, imageUrl, content);
+    // console.log('trash:', id, imageUrl, content);
 
     const navigate = useNavigate();
 
@@ -62,4 +62,6 @@ const CardImg = styled.img`
 
 const CardLine = styled.div`
     font-size: 0.9rem;
+    font-family: 'Pretendard-Medium', sans-serif;;
+    font-size: 16px;
 `

@@ -12,7 +12,7 @@ const useRandomTrash = () => {
     const getTrashes = async () => {
       try {
         const data = await getTrash();
-        console.log(data);
+        // console.log(data);
         setImages(data.images);
         setLoading(false);
       } catch (err) {

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const TextTitle = ({ children, fontFamily }) => {
-    console.log("fontFamily prop:", fontFamily);
+    // console.log("fontFamily prop:", fontFamily);
     return (
         <StyledTitle fontFamily={fontFamily}>
             {children}

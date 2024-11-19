@@ -13,7 +13,7 @@ import randombtn from '../assets/images/randomBtn.svg';
 const MakeTrashcan = ({ onSelectTrash }) => {
   const navigate = useNavigate();
   const { currentImage, getNextTrash, loading, error } = useRandomTrash();
-  console.log("currentImage:", currentImage); // 이미지 URL 확인
+  // console.log("currentImage:", currentImage); // 이미지 URL 확인
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -34,7 +34,8 @@ const MakeTrashcan = ({ onSelectTrash }) => {
       <IconBox justifyContent={"flex-start"} fontSize={"1.5rem"}>
         <IoMdArrowBack onClick={handleClickIcon} />
       </IconBox>
-      <Spacer size={SIZES.MEDIUM} />
+      <Spacer size={SIZES.LARGE} />
+      {/* <Spacer size={SIZES.LARGE} /> */}
       <TextTitle>친구에게 보낼 쓸애기에요!</TextTitle>
       <Spacer size={SIZES.MEDIUM} />
       <TrashCardContainer>
@@ -45,6 +46,8 @@ const MakeTrashcan = ({ onSelectTrash }) => {
       <Spacer size={SIZES.MEDIUM} />
       <OkBtn onClick={handleOkClick} alt='확인'>확인</OkBtn>
       <Spacer size={SIZES.SLARGE} />
+      <Spacer size={SIZES.LARGE} />
+      <Spacer size={SIZES.LARGE} />
     </Container>
   );
 };
@@ -77,9 +80,11 @@ const TrashCardContainer = styled.div`
 
 const TrashCardSend = styled.div`
   background-image: url(${({ $backgroundImage }) => $backgroundImage || '/path/to/default/image.png'});
-  background-size: cover;
+  background-size: 70%;
+  background-repeat: no-repeat;
   background-position: center;
   width: 100%;
+  height: 100%;
   aspect-ratio: 1;
   border-radius: 1rem;
 `;
