@@ -15,6 +15,7 @@ import { useState } from 'react';
 import MenuPage from './pages/MenuPage';
 import VisitorPage from './pages/VisitorPage';
 import LetterDetail from './pages/LetterDetails';
+import EndPage from './pages/EndPage';
 
 function App() {
   //편지지 이미지 페이지 간 전송필요함
@@ -45,14 +46,14 @@ function App() {
 
           <Route path="/nickname" element={<NickNamePage />} />
           <Route path="/mainpage" element={<MainPage />} />
+          <Route path="/menu" element={<MenuPage />} />
 
           <Route path="/member/:id" element={<VisitorPage />} />
 
-          <Route path="/menu" element={<MenuPage />} />
           <Route path="/maketrashcan" element={<MakeTrashcan onSelectTrash={handleTrashSelect} />} />
           <Route path="/ChoiceLetter" element={<ChoiceLetter onSelectImage={handleImageSelect} />} />
           <Route path="/WriteLetter" element={<WriteLetter selectedImage={selectedImage} />} />
-          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/end" element={<EndPage />} />
 
           <Route path="/maketrashcan" element={<MakeTrashcan />} />
           <Route path="/ChoiceLetter" element={<ChoiceLetter />} />
