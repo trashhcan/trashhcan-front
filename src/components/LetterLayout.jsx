@@ -3,18 +3,24 @@ import ping from '../assets/images/ping.png';
 import styled from 'styled-components';
 import back from '../assets/images/back.svg';
 import { BiArrowBack } from "react-icons/bi";
+import { useNavigate } from 'react-router-dom';
 
-const LetterLayout = ({titleComponent, children, backgroundImage}) => {
-    //
+const LetterLayout = ({ titleComponent, children, backgroundImage }) => {
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate(-1);
+  }
+
   return (
     <LetterWrapper>
-        <BackButton><BiArrowBack size={22} /></BackButton>
-        <TitleContainer>
-            {titleComponent}
-        </TitleContainer>
-        <LetterBox $backgroundImage={backgroundImage}>
-            {children}
-        </LetterBox>
+      <BackButton><BiArrowBack size={22} onClick={handleBack} /></BackButton>
+      <TitleContainer>
+        {titleComponent}
+      </TitleContainer>
+      <LetterBox $backgroundImage={backgroundImage}>
+        {children}
+      </LetterBox>
     </LetterWrapper>
   )
 }

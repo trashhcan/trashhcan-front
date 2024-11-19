@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const WriteTitleBox = ({ onToggleSubject, isSubjectVisible }) => {
+  const [nickname, setNickname] = useState('');
 
-    //친구 닉네임 불러와야함
+  useEffect(() => {
+    //sessionStorage에서 v_box_name 값 가져오기
+    const storedNickname = sessionStorage.getItem('v_box_name');
+    if (storedNickname) {
+        setNickname(storedNickname);
+    }
+}, []); 
+
 
   return (
     <WriteContainer>
-      <Text>두비두밥바에게 보낼 쓸애기 6.6</Text>
+      <Text>{nickname}에게 보낼 쓸애기 6.6</Text>
       <Button $isSubjectVisible={isSubjectVisible} onClick={onToggleSubject}>
         {isSubjectVisible ? '주제버리기' : '쓸데없는 랜덤 주제'}
       </Button>

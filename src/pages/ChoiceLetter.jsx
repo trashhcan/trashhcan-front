@@ -7,17 +7,18 @@ import styled from 'styled-components';
 import useRandomImg from '../hooks/useRandomImg';
 
 const ChoiceLetter = ({ onSelectImage }) => {
-    //useRandomImg에서 이미지리스트 가져오기
-    const { currentImage, getNextImage, loading, error } = useRandomImg();
+  //useRandomImg에서 이미지리스트 가져오기
+  const { currentImage, getNextImage, loading, error } = useRandomImg();
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error}</p>;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
-    const handleOkClick = () => {
-        if (onSelectImage) {
-         onSelectImage(`http://${currentImage}`); //현재이미지넘기도록저장
-     }
-    };
+  const handleOkClick = () => {
+    if (onSelectImage) {
+      onSelectImage(`http://${currentImage}`); //현재이미지넘기도록저장
+      sessionStorage.setItem('letterimage_url', `http://${currentImage}`);
+    }
+  };
 
   return (
     <LetterLayout

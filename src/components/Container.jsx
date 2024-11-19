@@ -11,6 +11,7 @@ const Container = styled.div`
     background-position: center;
     background-size: cover;
     background-color: ${({ theme }) => theme.backgroundColors.light};
+    position: relative;
 `
 
 export default Container;

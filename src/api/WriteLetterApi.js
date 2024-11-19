@@ -15,7 +15,7 @@ const apiClient = axios.create({
 //편지 작성된 내용 백으로 전달
 export const submitLetter = async (senderId, letterData) => {
   try {
-    const response = await apiClient.post(`/api/letter/${senderId}/`, letterData);
+    const response = await apiClient.post(`/api/letter/${senderId}`, letterData);
     return response.data;
   } catch (error) {
     console.error('Error submitting letter:', error.message);
