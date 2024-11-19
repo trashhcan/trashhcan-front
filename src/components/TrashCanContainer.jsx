@@ -37,7 +37,7 @@ const TrashCanContainer = ({memberId}) => {
                     throw new Error('Member ID가 정의되지 않았습니다.');
                 }
                 const data = await getTrashData(effectiveMemberId);
-                console.log('API Response:', data);//확인용ok
+                // console.log('API Response:', data);//확인용ok
                 setTrashItems(data.letters || []); //데이터가 없음 빈배열로 처리
             } catch (err) {
                 setError('쓰레기 데이터를 불러오는 데 실패했습니다.');

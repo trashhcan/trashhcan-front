@@ -15,7 +15,7 @@ const WriteTitleBox = ({ onToggleSubject, isSubjectVisible }) => {
 
   return (
     <WriteContainer>
-      <Text>{nickname}에게 보낼 쓸애기 6.6</Text>
+      <Text>{nickname}에게 보낼 쓸애기 &gt;3&lt;</Text>
       <Button $isSubjectVisible={isSubjectVisible} onClick={onToggleSubject}>
         {isSubjectVisible ? '주제버리기' : '쓸데없는 랜덤 주제'}
       </Button>
