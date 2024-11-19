@@ -22,14 +22,13 @@ const VisitorPage = () => {
             try {
                 const response = await getLetterBoxByMemberId(id);
                 if (!response) { // 인증 실패 또는 데이터 없음 → 로그인 페이지로 리다이렉트
-                    localStorage('v_id', id);
                     navigate("/");
                 } else { // 데이터가 있으면 상태 업데이트
                     setVisitorData(response);
                     // console.log(visitorData);
-                    localStorage.setItem('letterbox_id', response.id);
-                    localStorage.setItem('v_member_id', response.member_id);
-                    localStorage.setItem('v_box_name', response.box_name);
+                    window.localStorage.setItem('letterbox_id', response.id);
+                    window.localStorage.setItem('v_member_id', response.member_id);
+                    window.localStorage.setItem('v_box_name', response.box_name);
 
                     setBoxName(response.box_name);
                 }

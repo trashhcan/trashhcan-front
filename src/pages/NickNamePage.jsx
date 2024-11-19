@@ -41,7 +41,7 @@ const NickNamePage = () => {
 
         try {
             const response = await postBoxName(payload);
-            localStorage.setItem('letterbox_id', response);
+            window.localStorage.setItem('letterbox_id', response);
             console.log('닉네임 설정 성공, Response:', response);
             navigate("/mainpage");
         } catch (error) {

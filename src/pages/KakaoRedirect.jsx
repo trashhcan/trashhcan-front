@@ -27,15 +27,15 @@ export function KakaoRedirect() {
         const data = response.data;
         console.log(data)
         // 세션 스토리지에 저장
-        localStorage.setItem("member_id", data.id);
-        localStorage.setItem("authToken", data.token.accessToken);
-        localStorage.setItem("refreshToken", data.token.refreshToken);
+        window.localStorage.setItem("member_id", data.id);
+        window.localStorage.setItem("authToken", data.token.accessToken);
+        window.localStorage.setItem("refreshToken", data.token.refreshToken);
 
         // 닉네임 여부로 라우팅 결정
         if (!data.box_name) {
           navigate('/nickname');
         } else {
-          localStorage.setItem("box_name", data.box_name);
+          window.localStorage.setItem("box_name", data.box_name);
           navigate('/mainpage');
         }
       } catch (error) {

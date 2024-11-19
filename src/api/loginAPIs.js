@@ -20,7 +20,7 @@ export const postBoxName = async (payload) => {
       },
     });
     
-    localStorage.setItem('letter_box', response.data)
+    window.localStorage.setItem('letter_box', response.data)
     return response.data;
   } catch (error) {
     console.error('Error submitting letter:', error.message);

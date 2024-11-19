@@ -13,7 +13,7 @@ const GoogleLoginButton = () => {
         const decode = jwtDecode(token);
         // Todo: 사용자 닉네임 검증 -> 닉네임이 없으면 닉네임페이지로, 있으면 홈 페이지로 이동합니다.
 
-        localStorage.setItem('user', JSON.stringify(decode));
+        window.localStorage.setItem('user', JSON.stringify(decode));
         navigate('/mainpage');
 
     }

@@ -16,7 +16,7 @@ const ChoiceLetter = ({ onSelectImage }) => {
   const handleOkClick = () => {
     if (onSelectImage) {
       onSelectImage(`http://${currentImage}`); //현재이미지넘기도록저장
-      localStorage.setItem('letterimage_url', `http://${currentImage}`);
+      window.localStorage.setItem('letterimage_url', `http://${currentImage}`);
     }
   };
 
