@@ -20,6 +20,7 @@ const MainPage = () => {
         // console.log(vId);
         if (vId) {
             navigate(`/member/${vId}`);
+            localStorage.removeItem('v_id'); // 안전하게 제거
         }
 
         const memberId = localStorage.getItem('member_id');

@@ -25,7 +25,6 @@ const VisitorPage = () => {
                     window.localStorage.setItem('v_id', id);
                     navigate("/");
                 } else { // 데이터가 있으면 상태 업데이트
-
                     setVisitorData(response);
                     // console.log(visitorData);
                     window.localStorage.setItem('letterbox_id', response.id);
