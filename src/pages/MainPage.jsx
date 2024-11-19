@@ -6,6 +6,7 @@ import Spacer from '../components/Spacer';
 import { SIZES } from '../styles/spacing';
 import trashcanImage from '../assets/images/trashcan_nokki.png';
 import { BsGrid3X3 } from "react-icons/bs";
+import { LuMenu } from "react-icons/lu";
 import { useNavigate } from 'react-router-dom';
 import IconBox from '../components/IconBox';
 import { getTrash } from '../api/letterApi';
@@ -48,7 +49,7 @@ const MainPage = () => {
         <Container>
             <Spacer size={SIZES.SLARGE} />
             <IconBox justifyContent={"flex-end"}>
-                <BsGrid3X3 onClick={handleClickIcon} />
+                <LuMenu onClick={handleClickIcon} />
             </IconBox>
             <Spacer size={SIZES.SMALL} />
             <OuterShadow>
