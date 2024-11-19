@@ -22,6 +22,7 @@ const VisitorPage = () => {
             try {
                 const response = await getLetterBoxByMemberId(id);
                 if (!response) { // 인증 실패 또는 데이터 없음 → 로그인 페이지로 리다이렉트
+                    window.localStorage.setItem('v_id', id);
                     navigate("/");
                 } else { // 데이터가 있으면 상태 업데이트
                     setVisitorData(response);
@@ -59,9 +60,9 @@ const VisitorPage = () => {
                         <Spacer size={SIZES.MEDIUM} />
                         <TextTitle>{boxName}의 쓸애기통</TextTitle>
                         <Spacer size={SIZES.LARGE} />
-                    {/* TrashCanContainer에 친구 ID 전달 */}
-                    <TrashCanContainer memberId={id} />
-                    <Spacer size={SIZES.LARGE} />
+                        {/* TrashCanContainer에 친구 ID 전달 */}
+                        <TrashCanContainer memberId={id} />
+                        <Spacer size={SIZES.LARGE} />
                         <IconBox fontSize={'3.2rem'}>
                             <IoMdAddCircle onClick={handleSendLetter} />
                         </IconBox>

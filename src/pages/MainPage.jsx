@@ -16,11 +16,19 @@ const MainPage = () => {
     const [shareUrl, setShareUrl] = useState('');
 
     useEffect(() => {
+        const vId = localStorage.getItem('v_id');
+        // console.log(vId);
+        if (vId) {
+            navigate(`/member/${vId}`);
+            localStorage.removeItem('v_id'); // 안전하게 제거
+        }
+
         const memberId = localStorage.getItem('member_id');
         const storedBoxName = localStorage.getItem('box_name');
         const originalUrl = window.location.origin;
 
         if (storedBoxName) {
+
             setBoxName(storedBoxName);
         }
 
