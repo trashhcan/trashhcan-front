@@ -9,24 +9,25 @@ import { BsGrid3X3 } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 import IconBox from '../components/IconBox';
 import { getTrash } from '../api/letterApi';
+import TrashCanContainer from '../components/TrashCanContainer';
 
 const MainPage = () => {
     const navigate = useNavigate();
     const [boxName, setBoxName] = useState('');
     const [isShareModalOpen, setShareModalOpen] = useState(false);
-    const [shareUrl, setShareUrl] = useState('')
+    const [shareUrl, setShareUrl] = useState('');
 
     useEffect(() => {
         const memberId = sessionStorage.getItem('member_id');
         const storedBoxName = sessionStorage.getItem('box_name');
-        const originalUrl = window.location.origin; // 원본 url
+        const originalUrl = window.location.origin;
 
         if (storedBoxName) {
             setBoxName(storedBoxName);
         }
 
         if (memberId) {
-            setShareUrl(`${originalUrl}/member/${memberId}`); // URL에 member_id 붙이기
+            setShareUrl(`${originalUrl}/member/${memberId}`); //URL에 member_id 붙이기
         } else {
             alert("공유하기 실패: 정의되지 않은 사용자입니다.");
         }
@@ -56,7 +57,8 @@ const MainPage = () => {
                         <Spacer size={SIZES.MEDIUM} />
                         <TextTitle>{boxName}의 쓸애기통</TextTitle>
                         <Spacer size={SIZES.LARGE} />
-                        <TrashCan src={trashcanImage}></TrashCan>
+                        {/* <TrashCan src={trashcanImage}></TrashCan> */}
+                        <TrashCanContainer />
                         <Spacer size={SIZES.SLARGE} />
                     </TrashBox>
                     <Footer onClick={handleFooterClick}>
@@ -116,10 +118,10 @@ const TrashBox = styled.div`
     ${({ theme }) => theme.fixedOuter};
 `;
 
-const TrashCan = styled.img`
-    width: ${({ theme }) => theme.MidOutSection};
-    ${({ theme }) => theme.fixedMidOut};
-`;
+// const TrashCan = styled.img`
+//     width: ${({ theme }) => theme.MidOutSection};
+//     ${({ theme }) => theme.fixedMidOut};
+// `;
 
 const Footer = styled.div`
     width: 100%;
