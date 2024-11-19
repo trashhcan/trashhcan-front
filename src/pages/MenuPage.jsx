@@ -27,6 +27,7 @@ const MenuPage = () => {
                 const memberId = sessionStorage.getItem('member_id'); // 사용자 ID
                 const data = await getMyWriteLetters(memberId);
                 setLetters(data);
+                console.log('data:', data);
             } catch (err) {
                 setError('내가 작성한 쓸애기를 불러오는 데 실패했습니다.');
             } finally {
@@ -43,8 +44,6 @@ const MenuPage = () => {
     return (
         <Container>
             <Spacer size={SIZES.LARGE} />
-            {/* <Spacer size={SIZES.LARGE} />
-            <Spacer size={SIZES.MINIMUN} /> */}
             <TitleContainer>
                 <Icon>
                     <IoMdArrowBack onClick={handleGoBack} />
@@ -63,8 +62,8 @@ const MenuPage = () => {
                 <TrashBox>
                     {letters.map((letter) => (
                         <TrashCard
-                            key={letter.id}
-                            imageUrl={letter.trashimage_url}
+                            id={letter.id}
+                            imageUrl={letter.letterimage_url}
                             content={letter.content}
                         />
                     ))}
@@ -83,8 +82,8 @@ const TitleContainer = styled.div`
     align-items: center;
     width: ${({ theme }) => theme.OuterSection};
     ${({ theme }) => theme.fixedOuter};
-    position: sticky;
-    top: 0;
+    position: absolute;
+    top: 15%;
 `;
 
 const Icon = styled.div`
@@ -107,6 +106,8 @@ const TrashBox = styled.div`
     ${({ theme }) => theme.fixedOuter};
     overflow-y: auto;
     padding: 1rem;
+    position: absolute;
+    top: 22.5%;
 `;
 
 const LoadingText = styled.div`
