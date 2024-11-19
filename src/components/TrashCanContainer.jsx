@@ -19,7 +19,7 @@ const TrashCanContainer = ({memberId}) => {
         { top: '66%', left: '48%',width: '20%'},
         { top: '46%', left: '28%' ,width: '19%'},
         { top: '45%', left: '47%' ,width: '22%'},
-        { top: '24%', left: '29%' ,width: '24%'},
+        { top: '24%', left: '29%' ,width: '21%'},
         { top: '27%', left: '51%' ,width: '19%'},
         { top: '10%', left: '26%' ,width: '18%'},
         { top: '68%', left: '71%' ,width: '19%'},
