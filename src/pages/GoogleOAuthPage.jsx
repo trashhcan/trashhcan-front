@@ -11,7 +11,8 @@ const GoogleOAuthPage = () => {
     const loginHandler = async code => {
         try {
             const response = await axios.post(
-                `http://trashhcan-dev.p-e.kr:8080/login/google/callback`, // 실제 백엔드 주소 필요
+                `https://trashhcandoit.p-e.kr:8080/login/google/callback`, // 실제 백엔드 주소
+                // `http://trashhcan-dev.p-e.kr:8080/login/google/callback`, // 개발용 벡앤드 주소
                 { code: code },
                 {
                     headers: {
