@@ -30,7 +30,7 @@ const LetterDetails = () => {
     if (loading) return <LoadingText>로딩 중...</LoadingText>;
     if (error) return <ErrorText>{error}</ErrorText>;
     if (!letterDetails) return null;
-
+    console.log(letterDetails)
     return (
         <LetterLayout
             titleComponent={<Title>{letterDetails.sender_box_name}(이)가 두고 간 쓸애기 &gt;3&lt;</Title>}
@@ -51,11 +51,11 @@ export default LetterDetails;
 const Title = styled.h1`
     font-size: 14px;
     font-family: 'Pretendard-Medium', sans-serif;
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.dark};
     text-align: center;
     padding: 8px 12px;
     background-color: ${({ theme }) => theme.backgroundColors.grey};
-    border-radius: 13px;
+    border-radius: 0.6rem;
     margin:  auto;
     width: ${({ theme }) => theme.OuterSection};
 `;
@@ -69,7 +69,6 @@ const ContentWrapper = styled.div`
     align-items: center; /* 중앙 정렬 */
     margin-top: 10%;
 `;
-
 
 const ContentText = styled.p`
     width: 83%;

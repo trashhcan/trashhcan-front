@@ -6,6 +6,7 @@ export const theme = {
   InMidSection: '32vw',
   MiddleSection: '60vw',
   MidOutSection: '72vw',
+  OuterTopSection: '88vw',
   OuterSection: '92vw',
 
   fixedMin: css`
@@ -35,6 +36,12 @@ export const theme = {
   fixedMidOut: css`
     @media (min-width: 600px) {
       width: 400px;
+    }
+  `,
+
+  fixedOuterTop: css`
+    @media (min-width: 600px) {
+      width: 450px;
     }
   `,
 

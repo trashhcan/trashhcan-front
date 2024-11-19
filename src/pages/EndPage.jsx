@@ -9,8 +9,8 @@ const EndPage = () => {
     useEffect(() => {
         const v_member_id = localStorage.getItem('v_member_id');
         const timer = setTimeout(() => {
-            navigate(`/member/${v_member_id}`); // 2.5초 후 상대 쓸애기통으로 이동
-        }, 2500);
+            navigate(`/member/${v_member_id}`); // 1.5초 후 상대 쓸애기통으로 이동
+        }, 1500);
 
         return () => clearTimeout(timer); // 컴포넌트 언마운트 시 타이머 클리어
     }, [navigate]);
