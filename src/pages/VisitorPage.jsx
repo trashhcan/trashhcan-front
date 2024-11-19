@@ -9,6 +9,7 @@ import Container from '../components/Container';
 import trashcanImage from '../assets/images/trashcan_nokki.png';
 import { IoMdAddCircle } from "react-icons/io";
 import IconBox from '../components/IconBox';
+import TrashCanContainer from '../components/TrashCanContainer';
 
 const VisitorPage = () => {
     const navigate = useNavigate();
@@ -58,8 +59,9 @@ const VisitorPage = () => {
                         <Spacer size={SIZES.MEDIUM} />
                         <TextTitle>{boxName}의 쓸애기통</TextTitle>
                         <Spacer size={SIZES.LARGE} />
-                        <TrashCan src={trashcanImage}></TrashCan>
-                        <Spacer size={SIZES.MEDIUM} />
+                    {/* TrashCanContainer에 친구 ID 전달 */}
+                    <TrashCanContainer memberId={id} />
+                    <Spacer size={SIZES.LARGE} />
                         <IconBox fontSize={'3.2rem'}>
                             <IoMdAddCircle onClick={handleSendLetter} />
                         </IconBox>
