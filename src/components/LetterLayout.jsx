@@ -14,7 +14,7 @@ const LetterLayout = ({ titleComponent, children, backgroundImage }) => {
 
   return (
     <LetterWrapper>
-      <BackButton><BiArrowBack size={22} onClick={handleBack} /></BackButton>
+      <BackButton><BiArrowBack size={20} onClick={handleBack} /></BackButton>
       <TitleContainer>
         {titleComponent}
       </TitleContainer>
@@ -39,22 +39,24 @@ const LetterBox = styled.div`
     display: flex;
     /* width: 95%; */
     width: ${({ theme }) => theme.OuterSection};
-    height: 70%;
-    border: 1px solid #000000;
+    height: 75%;
+    border: 1px solid ${({ theme }) => theme.colors.dark};
     background-image: url(${({ $backgroundImage }) => $backgroundImage || '/path/to/default/image.png'});
     background-position: center;
     max-width: 365px;
     height: 640px;
 `
 const BackButton = styled.button`
+    display: flex;
     align-self: flex-start;
     height: 16px;
     background-size: cover;
     align-self: flex-start;
     background-color : #FFFFFF;
     border: none;
-    padding: 24px 34px;
+    padding: 1.5rem ;
     margin-bottom: 10px;
+    width: ${({ theme }) => theme.OuterTopSection};
 `
 const TitleContainer = styled.div`
     width: ${({ theme }) => theme.OuterSection};

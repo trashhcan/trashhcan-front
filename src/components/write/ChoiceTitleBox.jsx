@@ -11,7 +11,9 @@ export default ChoiceTitleBox;
 
 const ChoiceTitle = styled.div`
   font-size: 22px;
-  background-color: ${({theme}) => theme.backgroundColors.light};
+  background-color: ${({ theme }) => theme.backgroundColors.light};
   text-align: center;
   font-family: 'Pretendard-SemiBold', sans-serif;
+  color: ${({ theme }) => theme.colors.dark};
+
 `;

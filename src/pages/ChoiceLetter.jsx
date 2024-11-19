@@ -48,18 +48,20 @@ const ChoiceLayout = styled.div`
 `
 
 const RandomBtn = styled.img`
-    width: 54px;
-    height: 54px;
+    width: 50px;
+    height: 55px;
     cursor: pointer;
 
 `
+
 const OkBtn = styled.button`
-    width :242px;
-    height: 43px;
-    background-color: #616E7A;
+    width: ${({ theme }) => theme.MiddleSection};
+    ${({ theme }) => theme.fixedMiddle};
+    height: 2.5rem;
+    color: ${({ theme }) => theme.colors.grey};
+    background-color: ${({ theme }) => theme.backgroundColors.greySecond};
     border: none;
-    border-radius: 13px;
-    color : #FFFFFF;
+    border-radius: 0.6rem;
     font-family: 'Pretendard-Bold', sans-serif;
-    font-size: 18px;
-`
+    font-size: 1rem;
+`;

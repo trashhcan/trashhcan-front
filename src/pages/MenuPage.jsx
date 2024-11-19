@@ -80,8 +80,8 @@ const TitleContainer = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: ${({ theme }) => theme.OuterSection};
-    ${({ theme }) => theme.fixedOuter};
+    width: ${({ theme }) => theme.OuterTopSection};
+    ${({ theme }) => theme.fixedOuterTop};
     position: absolute;
     top: 10%;
 `;
@@ -91,7 +91,7 @@ const Icon = styled.div`
     flex-direction: start;
     justify-content: center;
     align-items: center;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 `;
 
 const EmptyBox = styled.div`
