@@ -34,7 +34,7 @@ const WriteLetter = ({ selectedImage }) => {
       };
 
       const response = await submitLetter(senderId, letterData);
-      console.log("Letter submitted successfully:", response);
+      // console.log("Letter submitted successfully:", response);
       // alert("편지가 성공적으로 제출되었습니다!");
       navigate("/end");
     } catch (error) {

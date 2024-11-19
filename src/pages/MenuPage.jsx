@@ -27,7 +27,7 @@ const MenuPage = () => {
                 const memberId = sessionStorage.getItem('member_id'); // 사용자 ID
                 const data = await getMyWriteLetters(memberId);
                 setLetters(data);
-                console.log('data:', data);
+                // console.log('data:', data);
             } catch (err) {
                 setError('내가 작성한 쓸애기를 불러오는 데 실패했습니다.');
             } finally {

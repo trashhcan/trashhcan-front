@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { MdArrowOutward } from "react-icons/md";
 
 const TrashCard = ({ id, imageUrl, content }) => {
-    console.log('trash:', id, imageUrl, content);
+    // console.log('trash:', id, imageUrl, content);
 
     const navigate = useNavigate();
 

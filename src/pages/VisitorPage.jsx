@@ -25,7 +25,7 @@ const VisitorPage = () => {
                     navigate("/");
                 } else { // 데이터가 있으면 상태 업데이트
                     setVisitorData(response);
-                    console.log(visitorData);
+                    // console.log(visitorData);
                     sessionStorage.setItem('letterbox_id', response.id);
                     sessionStorage.setItem('v_member_id', response.member_id);
                     sessionStorage.setItem('v_box_name', response.box_name);

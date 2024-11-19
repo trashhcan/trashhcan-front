@@ -39,7 +39,7 @@ const MainPage = () => {
     }
 
     const handleFooterClick = () => {
-        console.log(`공유할 URL: ${shareUrl}`);
+        // console.log(`공유할 URL: ${shareUrl}`);
         setShareModalOpen(true);
     };
 
