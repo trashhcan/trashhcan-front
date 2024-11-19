@@ -1,11 +1,18 @@
 import { css } from 'styled-components';
 
 export const theme = {
+  MinimumSection: '20vw',
   InnerSection: '24vw',
   InMidSection: '32vw',
   MiddleSection: '60vw',
   MidOutSection: '72vw',
   OuterSection: '92vw',
+
+  fixedMin: css`
+    @media (min-width: 600px) {
+      width: 100px;
+    }
+  `,
 
   fixedInner: css`
     @media (min-width: 600px) {
@@ -46,6 +53,7 @@ export const theme = {
   colors: {
     light: '#FFFFFF', // 밝은 배경색
     grey: '#CCD3D9',
+    greySecond: '#616E7A',
     dark: '#30383F',
   },
 
